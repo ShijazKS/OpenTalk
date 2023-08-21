@@ -4,8 +4,9 @@ import io from "socket.io-client";
 import { useEffect, useState } from "react";
 import { data } from "autoprefixer";
 
-const socket = io.connect("http://localhost:3001");
-//const socket = io.connect("https://nexus-backend-silk.vercel.app/");
+//const socket = io.connect("http://localhost:3001");
+const socket = io.connect("https://nexus-chat.glitch.me/");
+
 
 export default function Home() {
 
