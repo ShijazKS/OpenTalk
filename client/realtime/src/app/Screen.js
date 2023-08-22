@@ -17,6 +17,11 @@ const Screen = () => {
     socket.emit("data_from_client", data);
   };
 
+  // Filter out empty messages from messagesList
+  const filteredMessagesList = messagesList.filter(
+    (messageItem) => messageItem.message !== ""
+  );
+
   const joinRoom = () => {
     if (room !== "") {
       socket.emit("join_room", room);
@@ -112,10 +117,10 @@ const Screen = () => {
       {/* chat screen */}
       <div
         id="screen"
-        className="w-5/6 bg-red-200 border-2 border-white rounded-lg mt-10 p-8 overflow-auto"
+        className="w-5/6 bg-red-200 flex flex-col-reverse border-2 border-white rounded-lg mt-10 p-8 overflow-auto"
       >
         <ul>
-          {messagesList.map((messageItem, index) => (
+          {filteredMessagesList.map((messageItem, index) => (
             <li key={index}>
               {messageItem.senderSocketId === "me" ? (
                 <div
@@ -125,12 +130,15 @@ const Screen = () => {
                   <p>{messageItem.message}</p>
                 </div>
               ) : (
-                <div className=" bg-white max-w-min min-w-fit p-3 mb-4 rounded-lg">
-                  <h3 className="font-semibold">
-                    {messageItem.senderSocketId}
-                  </h3>
-                  <p>{messageItem.message}</p>
-                </div>
+                 // Check if message is not empty before rendering
+                 messageItem.message !== "" && (
+                  <div className="bg-white max-w-min min-w-fit p-3 mb-4 rounded-lg">
+                    <h3 className="font-semibold">
+                      {messageItem.senderSocketId}
+                    </h3>
+                    <p>{messageItem.message}</p>
+                  </div>
+                )
               )}
             </li>
           ))}
@@ -149,7 +157,7 @@ const Screen = () => {
         ></textarea>
         <button
           onClick={sendMessage}
-          className="bg-green-400 w-1/6 rounded-r-lg"
+          className="bg-green-400 w-1/6 focus:bg-green-500 rounded-r-lg"
         >
           SEND
         </button>
