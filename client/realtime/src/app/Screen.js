@@ -63,15 +63,15 @@ const Screen = () => {
     <>
       {/* navbar */}
       <div className="w-5/6 bg-blue-300 rounded-lg h-16 mx-6 my-5 px-6 flex items-center justify-between">
-        <h1 className="text-2xl font-bold">Open Talk</h1>
-        <h1 className="text-2xl font-semibold pr-3">
-          {username}:{myroom}
+        <h1 id="title" className="text-2xl italic font-bold">Open Talk</h1>
+        <h1 id="name" className="text-2xl font-semibold pr-3">
+          {username}.{myroom}
         </h1>
       </div>
       {/* room input */}
       <div className="flex">
         <form>
-          <div className="relative">
+          <div id="inp" className="relative">
             <input
               id="search"
               className="block w-full p-4 pl-4 text-lg text-gray-900 border border-gray-300 rounded-lg bg-blue-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-green-200 dark:border-green-400 dark:placeholder-gray-600 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -92,7 +92,7 @@ const Screen = () => {
         <button
           type="submit"
           onClick={DisconnectRooms}
-          className="text-red-700 border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-3 pl-3 py-3 ml-8 text-center dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900"
+          className="border bg-red-500 text-white border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-3 pl-3 py-3 ml-8 text-center dark:border-red-500 dark:text-white dark:hover:text-white dark:hover:bg-red-600"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -138,7 +138,7 @@ const Screen = () => {
       </div>
 
       {/* message input */}
-      <div className="w-5/6 form-outline overflow-hidden border border-green-500 h-20 mt-10 flex rounded-lg">
+      <div id="msg" className="w-5/6 form-outline overflow-hidden border border-green-500 h-20 mt-10 flex rounded-lg">
         <textarea
           id="msgbox"
           onChange={(e) => {
