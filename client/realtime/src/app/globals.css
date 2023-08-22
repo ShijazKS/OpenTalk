@@ -2,3 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+body{
+    margin: 0;
+    background-color: #ffffa1;
+}
+
+#screen{
+    max-height: 550px;
+}
+
