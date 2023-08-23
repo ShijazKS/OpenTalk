@@ -48,6 +48,7 @@ const Screen = () => {
       ...prevMessages,
       { senderSocketId: "me", message: message },
     ]);
+    setMessage("");
   };
 
   useEffect(() => {
@@ -79,6 +80,7 @@ const Screen = () => {
           <div id="inp" className="relative">
             <input
               id="search"
+              value={room}
               className="block w-full p-4 pl-4 text-lg text-gray-900 border border-gray-300 rounded-lg bg-blue-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-green-200 dark:border-green-400 dark:placeholder-gray-600 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
               placeholder="Room No:"
               onChange={(e) => {
@@ -149,6 +151,7 @@ const Screen = () => {
       <div id="msg" className="w-5/6 form-outline overflow-hidden border border-green-500 h-20 mt-10 flex rounded-lg">
         <textarea
           id="msgbox"
+          value={message}
           onChange={(e) => {
             setMessage(e.target.value);
           }}
