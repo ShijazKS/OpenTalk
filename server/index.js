@@ -1,14 +1,11 @@
-require('dotenv').config();
-const fs = require("fs");
-const { v4: uuidv4 } = require("uuid");
+require("dotenv").config();
 
-
-const express = require('express');
+const express = require("express");
 const app = express();
-const http = require('http');
-const { Server } = require('socket.io');
-const cors = require('cors');
-const { Socket } = require('dgram');
+const http = require("http");
+const { Server } = require("socket.io");
+const cors = require("cors");
+//const { Socket } = require('dgram');
 
 app.use(cors());
 
@@ -17,102 +14,74 @@ let PORT = process.env.PORT;
 const server = http.createServer(app);
 
 const io = new Server(server, {
-    cors: {
-        origin: "http://localhost:3000",
-        methods: ["GET", "POST"],
-    },
+  cors: {
+    origin: "http://localhost:3000",
+    methods: ["GET", "POST"],
+  },
 });
 
-const handleUploadedFile = async (fileData) => {
-    const file = fileData.files.file;
-    const fileExtension = file.name.split(".").pop();
-    const uniqueFileName = `${uuidv4()}.${fileExtension}`;
-
-    try {
-        await fs.promises.mkdir("uploads", { recursive: true });
-        const filePath = `uploads/${uniqueFileName}`;
-
-        await fs.promises.writeFile(filePath, file.data);
-
-        // You can add more logic here, such as saving file info to a database
-
-        return filePath; // Return the URL to the uploaded file
-    } catch (error) {
-        console.error("Error handling uploaded file:", error);
-        return null;
-    }
-};
 
 // Map to associate each socket ID with its guest name
 const rooms = new Map();
 
 const generateGuestName = () => {
-    const guestNumber = Array.from(rooms.values()).filter((name) => name.startsWith("guest"))
-        .length + 1;
-    return `guest${guestNumber}`;
+  const guestNumber =
+    Array.from(rooms.values()).filter((name) => name.startsWith("guest"))
+      .length + 1;
+  return `guest${guestNumber}`;
 };
 
 io.on("connection", (socket) => {
-    console.log(`User Connected: ${socket.id}`);
+  console.log(`User Connected: ${socket.id}`);
 
-    socket.on("data_from_client", (data) => {
-        console.log("Data received from client:", data);
-        // You can perform any server-side logic with the received data here
-    });
+  socket.on("data_from_client", (data) => {
+    console.log("Data received from client:", data);
+    // You can perform any server-side logic with the received data here
+  });
 
-    socket.on("join_room", (data) => {
-        const currentRoom = socket.room;
-        socket.join(data);
-        socket.room = data;
+  socket.on("join_room", (data) => {
+    const currentRoom = socket.room;
+    socket.join(data);
+    socket.room = data;
 
-        // Generate and send guest name when the client joins the room
-        const userName = generateGuestName();
-        rooms.set(socket.id, userName);
-        socket.emit("user_name", userName);
-    });
+    // Generate and send guest name when the client joins the room
+    const userName = generateGuestName();
+    rooms.set(socket.id, userName);
+    socket.emit("user_name", userName);
+  });
 
-    // Handle the data received from the client
-    
+  // Handle the data received from the client
 
-    socket.on("send_msg", async (data) => {
-        const senderSocketId = rooms.get(socket.id);
-    
-        if (data.type === "text") {
-            socket.to(data.room).emit("receive_msg", {
-                type: data.type,
-                message: data.message,
-                senderSocketId,
-            });
-        } else if (data.type === "file") {
-            const fileData = data.message;
-            const fileUrl = await handleUploadedFile(fileData);
-    
-            socket.to(data.room).emit("receive_msg", {
-                message: { type: "file", fileUrl },
-                senderSocketId,
-            });
-        }
-    });
+  socket.on("send_msg", async (data) => {
+    const senderSocketId = rooms.get(socket.id);
 
-    // socket.on("send_msg", (data) => {
-    //     const senderSocketId = rooms.get(socket.id);
-    //     //if (!senderSocketId) return;
-    //     //socket.broadcast.emit("receive_msg",data);
+    if (data.type === "text") {
+      socket.to(data.room).emit("receive_msg", {
+        type: data.type,
+        message: data.message,
+        senderSocketId,
+      });
+    }
+  });
 
+  // socket.on("send_msg", (data) => {
+  //     const senderSocketId = rooms.get(socket.id);
+  //     //if (!senderSocketId) return;
+  //     //socket.broadcast.emit("receive_msg",data);
 
-    //     socket.to(data.room).emit("receive_msg", {
-    //         message: data.message,
-    //         senderSocketId, // Use the guest name instead of socket.id
-    //     });
-    // });
-    
-    socket.on("disconnect", () => {
-        // Remove the socket ID and its guest name when a client disconnects
-        console.log(`User Disconnected: ${socket.id}`);
-        rooms.delete(socket.id);
-    });
+  //     socket.to(data.room).emit("receive_msg", {
+  //         message: data.message,
+  //         senderSocketId, // Use the guest name instead of socket.id
+  //     });
+  // });
+
+  socket.on("disconnect", () => {
+    // Remove the socket ID and its guest name when a client disconnects
+    console.log(`User Disconnected: ${socket.id}`);
+    rooms.delete(socket.id);
+  });
 });
 
 server.listen(PORT, () => {
-    console.log(`Server is Running on *:${PORT} `);
+  console.log(`Server is Running on *:${PORT} `);
 });

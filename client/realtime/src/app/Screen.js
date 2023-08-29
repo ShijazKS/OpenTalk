@@ -3,8 +3,8 @@ import React from "react";
 import io from "socket.io-client";
 import { useEffect, useState } from "react";
 
-//const socket = io.connect("http://localhost:3001");
-const socket = io.connect("https://nexus-chat.glitch.me/");
+const socket = io.connect("http://localhost:3001");
+//const socket = io.connect("https://nexus-chat.glitch.me/");
 
 const Screen = () => {
   const [room, setRoom] = useState(""); // input room
@@ -26,7 +26,7 @@ const Screen = () => {
     if (room !== "") {
       socket.emit("join_room", room);
       setMyroom(room);
-      sendDataToServer("hello world");
+      //sendDataToServer("hello");
     }
   };
 
@@ -54,42 +54,17 @@ const Screen = () => {
 
   useEffect(() => {
     socket.on("receive_msg", (data) => {
-      // Add the new message to the messages list
-      if (data.type === "text") {
-        // Add the new text message to the messages list
-        setMessagesList((prevMessages) => [
-          ...prevMessages,
-          { senderSocketId: data.senderSocketId, message: data.message },
-        ]);
-      } else if (data.type === "file") {
-        // Add the new file message to the messages list
-        setMessagesList((prevMessages) => [
-          ...prevMessages,
-          {
-            senderSocketId: data.senderSocketId,
-            message: data.message.fileUrl,
-            type: "file",
-          },
-        ]);
-      }
+      // Add the new text message to the messages list
+      setMessagesList((prevMessages) => [
+        ...prevMessages,
+        { senderSocketId: data.senderSocketId, message: data.message },
+      ]);
     });
     // Get the guest name from the server and store it in the state
     socket.on("user_name", (userName) => {
       setUsername(userName);
     });
   }, []);
-
-  const uploadFile = (file) => {
-    // const formData = new FormData();
-    // formData.append("file", file);
-    // socket.emit("send_msg", {
-      //   type: "file",
-      //   message: formData,
-      //   room: myroom, // Use the current room
-      // });
-     console.log(file);
-
-  };
 
   return (
     <>
@@ -109,7 +84,7 @@ const Screen = () => {
             <input
               id="search"
               value={room}
-              className="block w-full p-4 pl-4 text-lg text-gray-900 border rounded-lg focus:outline-none focus:border-slate-500 dark:bg-emerald-200 dark:border-emerald-500 dark:placeholder-gray-600 dark:text-yellow-950"
+              className="block w-full p-4 pl-4 text-lg text-gray-900 border rounded-lg focus:outline-none focus:border-slate-500 bg-emerald-200 border-emerald-500 placeholder-gray-600 text-yellow-950"
               placeholder="Room No:"
               onChange={(e) => {
                 setRoom(e.target.value);
@@ -118,7 +93,7 @@ const Screen = () => {
             <button
               type="button"
               onClick={joinRoom}
-              className="text-white absolute right-3 bottom-2.5 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-4 py-3 dark:bg-emerald-600 dark:hover:bg-teal-800 dark:focus:ring-teal-800"
+              className="text-white absolute right-3 bottom-2.5 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-4 py-3 bg-emerald-600 hover:bg-teal-800 focus:ring-teal-800"
             >
               GO!
             </button>
@@ -208,7 +183,7 @@ const Screen = () => {
       {/* message input */}
       <div
         id="msg"
-        className="w-5/6 form-outline overflow-hidden border border-green-500 h-20 mt-10 flex rounded-lg"
+        className="w-5/6 form-outline overflow-hidden border border-green-500 h-14 mt-10 flex rounded-lg"
       >
         <textarea
           id="msgbox"
@@ -229,7 +204,7 @@ const Screen = () => {
             viewBox="0 0 24 24"
             strokeWidth="2.5"
             stroke="currentColor"
-            className="md:w-12 md:h-12 w-6 h-6"
+            className="md:w-8 md:h-8 w-6 h-6"
           >
             <path
               strokeLinecap="round"
@@ -238,30 +213,6 @@ const Screen = () => {
             />
           </svg>
         </button>
-        {/* <label className="px-6 bg-lime-200 flex items-center">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth="2.5"
-            stroke="currentColor"
-            className="w-6 h-6"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M9 8.25H7.5a2.25 2.25 0 00-2.25 2.25v9a2.25 2.25 0 002.25 2.25h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25H15m0-3l-3-3m0 0l-3 3m3-3V15"
-            />
-          </svg>
-
-          <input
-            type="file"
-            onChange={(e) => {
-              uploadFile(e.target.files[0]);
-            }}
-            className="hidden"
-          />
-        </label> */}
       </div>
     </>
   );
