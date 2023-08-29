@@ -4,9 +4,9 @@
 
 body{
     margin: 0;
-    background-image: radial-gradient(#ff4747b8 2.9px, transparent 2px);
+    background-image: radial-gradient(#808000b8 2.9px, transparent 2px);
     background-size: 56px 56px;
-    background-color: #ebebeb;
+    background-color: #FFFFE0;
 }
 
 #screen{
@@ -15,9 +15,9 @@ body{
 
 @media (max-width: 480px) {
     body {
-        background-image: radial-gradient(#ffffffb8 2.9px, transparent 2px);
+        background-image: radial-gradient(#BA55D3 2.9px, transparent 2px);
         background-size: 56px 56px;
-        background-color: #1d1d44;
+        background-color: #E6E6FA;
     }
     #inp{
         width: 140px;

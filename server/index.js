@@ -1,4 +1,7 @@
 require('dotenv').config();
+const fs = require("fs");
+const { v4: uuidv4 } = require("uuid");
+
 
 const express = require('express');
 const app = express();
@@ -19,6 +22,26 @@ const io = new Server(server, {
         methods: ["GET", "POST"],
     },
 });
+
+const handleUploadedFile = async (fileData) => {
+    const file = fileData.files.file;
+    const fileExtension = file.name.split(".").pop();
+    const uniqueFileName = `${uuidv4()}.${fileExtension}`;
+
+    try {
+        await fs.promises.mkdir("uploads", { recursive: true });
+        const filePath = `uploads/${uniqueFileName}`;
+
+        await fs.promises.writeFile(filePath, file.data);
+
+        // You can add more logic here, such as saving file info to a database
+
+        return filePath; // Return the URL to the uploaded file
+    } catch (error) {
+        console.error("Error handling uploaded file:", error);
+        return null;
+    }
+};
 
 // Map to associate each socket ID with its guest name
 const rooms = new Map();
@@ -51,18 +74,38 @@ io.on("connection", (socket) => {
     // Handle the data received from the client
     
 
-    socket.on("send_msg", (data) => {
+    socket.on("send_msg", async (data) => {
         const senderSocketId = rooms.get(socket.id);
-        //if (!senderSocketId) return;
-        //socket.broadcast.emit("receive_msg",data);
-
-
-        socket.to(data.room).emit("receive_msg", {
-            message: data.message,
-            senderSocketId, // Use the guest name instead of socket.id
-        });
+    
+        if (data.type === "text") {
+            socket.to(data.room).emit("receive_msg", {
+                type: data.type,
+                message: data.message,
+                senderSocketId,
+            });
+        } else if (data.type === "file") {
+            const fileData = data.message;
+            const fileUrl = await handleUploadedFile(fileData);
+    
+            socket.to(data.room).emit("receive_msg", {
+                message: { type: "file", fileUrl },
+                senderSocketId,
+            });
+        }
     });
 
+    // socket.on("send_msg", (data) => {
+    //     const senderSocketId = rooms.get(socket.id);
+    //     //if (!senderSocketId) return;
+    //     //socket.broadcast.emit("receive_msg",data);
+
+
+    //     socket.to(data.room).emit("receive_msg", {
+    //         message: data.message,
+    //         senderSocketId, // Use the guest name instead of socket.id
+    //     });
+    // });
+    
     socket.on("disconnect", () => {
         // Remove the socket ID and its guest name when a client disconnects
         console.log(`User Disconnected: ${socket.id}`);
