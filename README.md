@@ -28,5 +28,5 @@ You can use the hosted version of this application at [https://open-talk.vercel.
  Contributions are welcome! Fork the repository and submit a pull request.
 
 ## License
-This project is licensed under the [MIT License]() - see the [LICENSE.md](https://github.com/ShijazKS/OpenTalk/blob/main/LICENSE) file for details.
+This project is licensed under the [GNU GENERAL PUBLIC LICENSE]() - see the [LICENSE](https://github.com/ShijazKS/OpenTalk/blob/main/LICENSE) file for details.
 
