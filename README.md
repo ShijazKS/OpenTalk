@@ -2,7 +2,7 @@
 
 This is a real-time room-based chat application built using Socket.IO. It enables users to engage in instant messaging within the same room, without the need for authentication. Users can interact by sharing a common room number.
 
-![opentalk](https://github.com/ShijazKS/OpenTalk/assets/70143317/187192ac-7f82-492a-afb3-969d988a75d0)
+![opentalk](https://github.com/ShijazKS/OpenTalk/assets/70143317/ebdf0b65-c351-4d48-ba3e-bf274fbb2f0a)
 
 
 ## Table of Contents
