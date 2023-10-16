@@ -25,7 +25,7 @@ You can use the hosted version of this application at [https://open-talk.vercel.
 2. Enter a room number (e.g., `123`) and start chatting!
 
 ## Contribute
- Contributions are welcome! Fork the repository and submit a pull request.
+ Contributions are welcome! Fork the repository and submit a pull request. Before you get started, please take a moment to read our [Contribution guidelines](CONTRIBUTING.md)
 
 ## License
 This project is licensed under the [GNU GENERAL PUBLIC LICENSE]() - see the [LICENSE](https://github.com/ShijazKS/OpenTalk/blob/main/LICENSE) file for details.
