@@ -3,8 +3,8 @@ import React from "react";
 import io from "socket.io-client";
 import { useEffect, useState } from "react";
 
-// const socket = io.connect("http://localhost:3001");
-const socket = io.connect("https://nexus-chat.glitch.me/");
+const socket = io.connect("http://localhost:3001");
+// const socket = io.connect("https://nexus-chat.glitch.me/");
 
 const Screen = () => {
   const [room, setRoom] = useState(""); // input room
@@ -192,11 +192,14 @@ const Screen = () => {
             setMessage(e.target.value);
           }}
           onKeyDown={(e) => {
-            if (e.key === "Enter" && !e.shiftKey) {
-              // If Enter is pressed without Shift, send the message
-              e.preventDefault(); // Prevents adding a newline
-              sendMessage();
-          }}}
+            if(window.innerWidth > 768){
+              if (e.key === "Enter" && !e.shiftKey) {   // If Enter is pressed without Shift, send the message
+                e.preventDefault(); // Prevents adding a newline
+                sendMessage();
+                }
+              }
+            }
+          }
           className="form-control w-5/6 p-3 resize-none text-xl focus:border-bg-white rounded-l-lg"
           rows="3"
         ></textarea>
