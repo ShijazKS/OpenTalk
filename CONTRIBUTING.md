@@ -15,8 +15,8 @@ Please note we have a [code of conduct](CODE_OF_CONDUCT.md); please follow it in
 4. Make your changes.
 5. Uncomment the localhost line and comment the nexus-chat line in the following lines of `client/realtime/src/app/Screen.js` before testing. It should look like the following:
 ```javascript
-// const socket = io.connect("http://localhost:3001");
-const socket = io.connect("https://nexus-chat.glitch.me/");
+const socket = io.connect("http://localhost:3001");
+// const socket = io.connect("https://nexus-chat.glitch.me/");
 ```
 
 ![1](https://github.com/ShijazKS/OpenTalk/assets/110324374/7476401e-1542-43a0-ae98-9917ba253e68)
