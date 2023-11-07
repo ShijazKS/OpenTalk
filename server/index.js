@@ -54,7 +54,7 @@ io.on("connection", (socket) => {
 
   socket.on("send_msg", async (data) => {
     const senderSocketId = rooms.get(socket.id);
-
+    console.log(data.message)
     if (data.type === "text") {
       socket.to(data.room).emit("receive_msg", {
         type: data.type,

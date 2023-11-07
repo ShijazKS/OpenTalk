@@ -3,7 +3,7 @@ import React from "react";
 import io from "socket.io-client";
 import { useEffect, useState } from "react";
 
-// const socket = io.connect("http://localhost:3001");
+//const socket = io.connect("http://localhost:3001");
 const socket = io.connect("https://nexus-chat.glitch.me/");
 
 const Screen = () => {
@@ -79,26 +79,30 @@ const Screen = () => {
       </div>
       {/* room input */}
       <div className="flex">
-        <form>
-          <div id="inp" className="relative">
-            <input
-              id="search"
-              value={room}
-              className="block w-full p-4 pl-4 text-lg text-gray-900 border rounded-lg focus:outline-none focus:border-slate-500 bg-emerald-200 border-emerald-500 placeholder-gray-600 text-yellow-950"
-              placeholder="Room No:"
-              onChange={(e) => {
-                setRoom(e.target.value);
-              }}
-            />
-            <button
-              type="button"
-              onClick={joinRoom}
-              className="text-white absolute right-3 bottom-2.5 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-4 py-3 bg-emerald-600 hover:bg-teal-800 focus:ring-teal-800"
-            >
-              GO!
-            </button>
-          </div>
-        </form>
+        <div id="inp" className="relative">
+          <input
+            id="search"
+            value={room}
+            className="block w-full p-4 pl-4 text-lg text-gray-900 border rounded-lg focus:outline-none focus:border-slate-500 bg-emerald-200 border-emerald-500 placeholder-gray-600 text-yellow-950"
+            placeholder="Room No:"
+            onChange={(e) => {
+              setRoom(e.target.value);
+            }}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                joinRoom();
+              }
+            }}
+          />
+          <button
+            type="button"
+            onClick={joinRoom}
+            className="text-white absolute right-3 bottom-2.5 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-4 py-3 bg-emerald-600 hover:bg-teal-800 focus:ring-teal-800"
+          >
+            GO!
+          </button>
+        </div>
+
         <button
           type="submit"
           onClick={DisconnectRooms}
@@ -192,14 +196,14 @@ const Screen = () => {
             setMessage(e.target.value);
           }}
           onKeyDown={(e) => {
-            if(window.innerWidth > 768){
-              if (e.key === "Enter" && !e.shiftKey) {   // If Enter is pressed without Shift, send the message
+            if (window.innerWidth > 768) {
+              if (e.key === "Enter" && !e.shiftKey) {
+                // If Enter is pressed without Shift, send the message
                 e.preventDefault(); // Prevents adding a newline
                 sendMessage();
-                }
               }
             }
-          }
+          }}
           className="form-control w-5/6 p-3 resize-none text-xl focus:border-bg-white rounded-l-lg"
           rows="3"
         ></textarea>
