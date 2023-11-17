@@ -3,8 +3,8 @@ import React from "react";
 import io from "socket.io-client";
 import { useEffect, useState } from "react";
 
-const socket = io.connect("http://localhost:3001");
-//const socket = io.connect("https://nexus-chat.glitch.me/");
+//const socket = io.connect("http://localhost:3001");
+const socket = io.connect("https://nexus-chat.glitch.me/");
 
 const Screen = () => {
   const [room, setRoom] = useState(""); // input room
@@ -73,9 +73,12 @@ const Screen = () => {
         <h1 id="title" className="text-2xl italic font-bold">
           Open Talk
         </h1>
+        <div>
         <h1 id="name" className="text-2xl font-semibold pr-3">
           {username}.{myroom}
         </h1>
+
+        </div>
       </div>
       {/* room input */}
       <div className="flex">

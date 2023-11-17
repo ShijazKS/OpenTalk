@@ -4,9 +4,9 @@
 
 body {
   margin: 0;
-  background-image: radial-gradient(#808000b8 2.9px, transparent 2px);
-  background-size: 56px 56px;
-  background-color: #ffffe0;
+  background-image: radial-gradient(#990011, 2px, transparent 2px);
+  background-size: 46px 46px;
+  background-color: #FCF6F5;
 }
 
 #screen {
