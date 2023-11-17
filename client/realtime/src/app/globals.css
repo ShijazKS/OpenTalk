@@ -2,36 +2,54 @@
 @tailwind components;
 @tailwind utilities;
 
-body{
-    margin: 0;
-    background-image: radial-gradient(#808000b8 2.9px, transparent 2px);
-    background-size: 56px 56px;
-    background-color: #FFFFE0;
+body {
+  margin: 0;
+  background-image: radial-gradient(#808000b8 2.9px, transparent 2px);
+  background-size: 56px 56px;
+  background-color: #ffffe0;
 }
 
-#screen{
-    max-height: 550px;
+#screen {
+  max-height: 550px;
 }
 
 @media (max-width: 480px) {
-    body {
-        background-image: radial-gradient(#BA55D3 2.9px, transparent 2px);
-        background-size: 56px 56px;
-        background-color: #E6E6FA;
-    }
-    #inp{
-        width: 140px;
-    }
-    #name{
-        font-size: large;
-    }
-    #title{
-        font-size: larger;
-    }
-    #screen{
-        max-height: 280px;
-    }
-    #msg{
-        margin-bottom: 10px;
-    }
+  body {
+    background-image: radial-gradient(#ba55d3 2.9px, transparent 2px);
+    background-size: 56px 56px;
+    background-color: #e6e6fa;
+  }
+  #inp {
+    width: 140px;
+  }
+  #name {
+    font-size: large;
+  }
+  #title {
+    font-size: larger;
+  }
+  #screen {
+    max-height: 280px;
+  }
+  #msg {
+    margin-bottom: 10px;
+  }
+}
+#msgbox {
+  white-space: pre-wrap;
+}
+
+.svg-icon {
+  fill: #5f5f5f;
+  transition: fill 0.3s; /* Smooth transition for color change */
+}
+
+.svg-link:hover .svg-icon {
+  fill: #6f068a; /* Change to your desired hover color */
+}
+
+.foot{
+  display: flex;
+  justify-content: space-between;
+  align-items:flex-end;
 }
