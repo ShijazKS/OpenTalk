@@ -3,8 +3,9 @@ import React from "react";
 import io from "socket.io-client";
 import { useEffect, useState } from "react";
 
-// const socket = io.connect("http://localhost:3001");
+//const socket = io.connect("http://localhost:3001");
 const socket = io.connect("https://nexus-chat.glitch.me/");
+
 
 const Screen = () => {
   const [room, setRoom] = useState(""); // input room
@@ -76,9 +77,9 @@ const Screen = () => {
   return (
     <>
       {/* navbar */}
-      <div className="w-5/6 md:bg-slate-300 bg-slate-800 text-slate-200 md:text-slate-800 rounded-lg h-16 mx-6 my-5 px-6 flex items-center justify-between">
+      <div className="w-5/6 bg-gray-300  text-sky-950 rounded-lg h-16 mx-6 my-5 px-6 flex items-center justify-between">
         <h1 id="title" className="text-2xl italic font-bold">
-          Open Talk
+          OpenTalk
         </h1>
         <div>
           <h1 id="name" className="text-2xl font-semibold pr-3">
@@ -92,8 +93,9 @@ const Screen = () => {
           <input
             id="search"
             value={room}
-            className="block w-full p-4 pl-4 text-lg text-gray-900 border rounded-lg focus:outline-none focus:border-slate-500 bg-emerald-200 border-emerald-500 placeholder-gray-600 text-yellow-950"
+            className="block w-full p-4 pl-4 text-lg border rounded-xl focus:outline-none bg-sky-300 border-emerald-500 placeholder-cyan-950 text-sky-950"
             placeholder="Room No:"
+            autoComplete="off"
             onChange={(e) => {
               setRoom(e.target.value);
             }}
@@ -106,7 +108,7 @@ const Screen = () => {
           <button
             type="button"
             onClick={joinRoom}
-            className="text-white absolute right-3 bottom-2.5 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-4 py-3 bg-emerald-600 hover:bg-teal-800 focus:ring-teal-800"
+            className="text-white absolute right-3 bottom-2.5 focus:ring-2 focus:outline-none font-medium rounded-lg text-sm px-4 py-3 bg-cyan-900 hover:bg-teal-700 focus:ring-teal-800"
           >
             GO!
           </button>
@@ -115,7 +117,7 @@ const Screen = () => {
         <button
           type="submit"
           onClick={DisconnectRooms}
-          className="border bg-red-500 text-white border-red-700 hover:bg-red-900 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-3 pl-3 py-3 ml-8 text-center dark:border-red-500 dark:text-white dark:hover:text-white dark:hover:bg-red-700"
+          className=" hover:bg-rose-800 text-white bg-red-700 focus:ring-4 focus:outline-none font-medium rounded-xl text-sm px-3 pl-3 py-3 ml-8 text-center focus:ring-pink-950"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -135,7 +137,7 @@ const Screen = () => {
       {/* chat screen */}
       <div
         id="screen"
-        className="w-5/6 bg-orange-200 flex flex-col-reverse border-2 border-stone-200 rounded-lg mt-10 p-8 overflow-auto"
+        className="w-5/6 border-amber-300 flex flex-col-reverse border-2 bg-amber-200 rounded-lg mt-10 p-8 overflow-auto"
       >
         <ul>
           {filteredMessagesList.map((messageItem, index) => (
@@ -143,29 +145,16 @@ const Screen = () => {
               {messageItem.senderSocketId === "me" ? (
                 <div
                   id="right"
-                  className="bg-green-300 max-w-min min-w-fit p-3 mb-4 rounded-lg ml-auto"
+                  className="bg-violet-300 max-w-min min-w-fit p-3 mb-4 rounded-lg ml-auto"
                 >
                   <p>{messageItem.message}</p>
                 </div>
               ) : (
-                <div className="bg-white max-w-min min-w-fit p-3 mb-4 rounded-lg">
-                  <h3 className="font-semibold">
+                <div className="bg-amber-100 max-w-min min-w-fit p-3 mb-4 rounded-lg">
+                  <h3 className="font-semibold text-zinc-600">
                     {messageItem.senderSocketId}
                   </h3>
-                  {messageItem.type === "file" ? (
-                    <div>
-                      <a
-                        href={messageItem.message}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-blue-500 hover:underline"
-                      >
-                        Download File
-                      </a>
-                    </div>
-                  ) : (
-                    <p>{messageItem.message}</p>
-                  )}
+                  <p>{messageItem.message}</p>
                 </div>
               )}
             </li>
@@ -176,11 +165,12 @@ const Screen = () => {
       {/* message input */}
       <div
         id="msg"
-        className="bg-gray-100 w-5/6 form-outline overflow-hidden border border-green-500 h-14 mt-10 flex rounded-lg"
+        className="bg-gray-400 w-5/6  overflow-hidden  h-14 mt-10 flex rounded-2xl"
       >
         <textarea
           id="msgbox"
           value={message}
+          placeholder="Write a message..."
           onChange={(e) => {
             setMessage(e.target.value);
           }}
@@ -194,12 +184,12 @@ const Screen = () => {
               }
             }
           }}
-          className="whitespace-pre-wrap form-control w-5/6 p-3 resize-none text-xl focus:border-bg-white rounded-l-lg"
+          className="bg-slate-300 whitespace-pre-wrap form-control w-5/6 p-3 resize-none text-xl focus:border-bg-white rounded-l-2xl text-slate-900 placeholder-slate-500"
           rows="3"
         ></textarea>
         <button
           onClick={sendMessage}
-          className="flex justify-center items-center bg-green-500 w-1/6 focus:bg-green-700 hover:bg-green-700 hover:text-white"
+          className="flex justify-center items-center hover:bg-slate-800 w-1/6 focus:bg-slate-700 bg-slate-500 hover:text-lime-100 rounded-r-lg text-lime-400"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -220,7 +210,7 @@ const Screen = () => {
       <footer className="lg:fixed md:static fixed w-full px-2 bottom-0 md:mb-2 ">
         <div className="foot">
           <a href="https://shijazks.vercel.app">
-            <h4 className="font-serif text-md italic text-indigo-900 pl-2">
+            <h4 className="font-serif text-md italic text-slate-950 bg-white hover:text-indigo-950 pl-2">
               jazDesign
             </h4>
           </a>

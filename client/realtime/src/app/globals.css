@@ -4,21 +4,25 @@
 
 body {
   margin: 0;
-  background-image: radial-gradient(#990011, 2px, transparent 2px);
-  background-size: 46px 46px;
-  background-color: #FCF6F5;
+  background-image: radial-gradient(#140101, 2.1px, transparent 2px);
+  background-size: 48px 48px;
+  background-color: #fdf4f4;
+  /* background-image: url("bg.jpg");
+  background-size: cover; */
 }
+
+#title,#name{
+  /* font-family: 'Itim', sans-serif; */
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
 
 #screen {
   max-height: 550px;
 }
 
 @media (max-width: 480px) {
-  body {
-    background-image: radial-gradient(#ba55d3 2.9px, transparent 2px);
-    background-size: 56px 56px;
-    background-color: #e6e6fa;
-  }
+  
   #inp {
     width: 140px;
   }
@@ -40,7 +44,7 @@ body {
 }
 
 .svg-icon {
-  fill: #5f5f5f;
+  fill: #1e293bce;
   transition: fill 0.3s; /* Smooth transition for color change */
 }
 
