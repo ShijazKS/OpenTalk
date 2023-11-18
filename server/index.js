@@ -5,7 +5,6 @@ const app = express();
 const http = require("http");
 const { Server } = require("socket.io");
 const cors = require("cors");
-//const { Socket } = require('dgram');
 
 app.use(cors());
 
@@ -20,15 +19,18 @@ const io = new Server(server, {
   },
 });
 
-
 // Map to associate each socket ID with its guest name
 const rooms = new Map();
 
+// Map to store room-wise user counts
+const roomUserCounts = new Map();
+
 const generateGuestName = () => {
+  const randomNumber = Math.floor(100 + Math.random() * 900);
   const guestNumber =
     Array.from(rooms.values()).filter((name) => name.startsWith("guest"))
       .length + 1;
-  return `guest${guestNumber}`;
+  return `G${randomNumber}`;
 };
 
 io.on("connection", (socket) => {
@@ -47,6 +49,9 @@ io.on("connection", (socket) => {
     // Generate and send guest name when the client joins the room
     const userName = generateGuestName();
     rooms.set(socket.id, userName);
+
+    
+
     socket.emit("user_name", userName);
   });
 
@@ -54,7 +59,7 @@ io.on("connection", (socket) => {
 
   socket.on("send_msg", async (data) => {
     const senderSocketId = rooms.get(socket.id);
-    console.log(data.message)
+    //console.log(roomUserCounts)
     if (data.type === "text") {
       socket.to(data.room).emit("receive_msg", {
         type: data.type,
@@ -64,21 +69,25 @@ io.on("connection", (socket) => {
     }
   });
 
-  // socket.on("send_msg", (data) => {
-  //     const senderSocketId = rooms.get(socket.id);
-  //     //if (!senderSocketId) return;
-  //     //socket.broadcast.emit("receive_msg",data);
-
-  //     socket.to(data.room).emit("receive_msg", {
-  //         message: data.message,
-  //         senderSocketId, // Use the guest name instead of socket.id
-  //     });
-  // });
-
   socket.on("disconnect", () => {
+    const currentRoom = socket.room;
+
     // Remove the socket ID and its guest name when a client disconnects
     console.log(`User Disconnected: ${socket.id}`);
     rooms.delete(socket.id);
+
+    // Update room user count
+    if (currentRoom) {
+      roomUserCounts.set(currentRoom, (roomUserCounts.get(currentRoom) || 0) - 1);
+
+      // If user count becomes zero, remove the room from the map
+      if (roomUserCounts.get(currentRoom) === 0) {
+        roomUserCounts.delete(currentRoom);
+      }
+
+      // Emit updated user count to all clients in the room
+      io.to(currentRoom).emit("user_count", roomUserCounts.get(currentRoom));
+    }
   });
 });
 
