@@ -25,7 +25,8 @@ const Screen = () => {
   );
 
   const joinRoom = () => {
-    if (room !== "") {
+    if (room !== "" && room !== myroom) {
+      setMessagesList([]);
       socket.emit("join_room", room);
       setMyroom(room);
       setUserCount(0);
