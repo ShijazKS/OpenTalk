@@ -25,6 +25,9 @@ const Screen = () => {
   );
 
   const joinRoom = () => {
+    if (myroom !== ""){
+      socket.disconnect();
+    }
     if (room !== "" && room !== myroom) {
       setMessagesList([]);
       socket.emit("join_room", room);
@@ -151,7 +154,7 @@ const Screen = () => {
                   <p>{messageItem.message}</p>
                 </div>
               ) : (
-                <div className="bg-amber-100 max-w-min min-w-fit p-3 mb-4 rounded-lg">
+                <div className="bg-white max-w-min min-w-fit p-3 mb-4 rounded-lg">
                   <h3 className="font-semibold text-zinc-600">
                     {messageItem.senderSocketId}
                   </h3>
