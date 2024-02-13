@@ -8,8 +8,8 @@ import RoomSection from "./components/RoomSection";
 import ChatScreen from "./components/ChatScreen";
 import TextInput from "./components/TextInput";
 
-const socket = io.connect("http://localhost:3001");
-//const socket = io.connect("https://nexus-chat.glitch.me/");
+//const socket = io.connect("http://localhost:3001");
+const socket = io.connect("https://nexus-chat.glitch.me/");
 
 
 const Screen = () => {
