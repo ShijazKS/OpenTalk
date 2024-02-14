@@ -11,7 +11,6 @@ import TextInput from "./components/TextInput";
 //const socket = io.connect("http://localhost:3001");
 const socket = io.connect("https://nexus-chat.glitch.me/");
 
-
 const Screen = () => {
   const [room, setRoom] = useState(""); // input room
   const [message, setMessage] = useState(""); //input message
@@ -30,7 +29,7 @@ const Screen = () => {
   );
 
   const joinRoom = () => {
-    if (myroom !== ""){
+    if (myroom !== "") {
       socket.disconnect();
     }
     if (room !== "" && room !== myroom) {
@@ -85,11 +84,59 @@ const Screen = () => {
 
   return (
     <>
+      <ul className="-z-50 background">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+
       {/* navbar */}
       <Header username={username} myroom={myroom} userCount={userCount} />
 
       {/* room input */}
-      <RoomSection room={room} setRoom={setRoom} joinRoom={joinRoom} DisconnectRooms={DisconnectRooms} />
+      <RoomSection
+        room={room}
+        setRoom={setRoom}
+        joinRoom={joinRoom}
+        DisconnectRooms={DisconnectRooms}
+      />
 
       {/* chat screen */}
       {/* <div
@@ -121,9 +168,14 @@ const Screen = () => {
       <ChatScreen filteredMessagesList={filteredMessagesList} />
 
       {/* message input */}
-      <TextInput message={message} setMessage={setMessage} sendMessage={sendMessage} username={username} />
+      <TextInput
+        message={message}
+        setMessage={setMessage}
+        sendMessage={sendMessage}
+        username={username}
+      />
 
-      <Footer/>
+      <Footer />
     </>
   );
 };

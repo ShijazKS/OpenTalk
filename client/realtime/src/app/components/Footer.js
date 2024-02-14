@@ -5,7 +5,7 @@ const Footer = () => {
     <footer className="lg:fixed md:static fixed w-full px-2 bottom-0 md:pb-2 ">
         <div className="foot">
           <a href="https://shijazks.vercel.app">
-            <h4 className="font-serif text-md italic text-slate-950 bg-white hover:text-indigo-950 pl-2">
+            <h4 className="font-serif text-md italic text-slate-950 hover:text-indigo-950 pl-2">
               jazDesign
             </h4>
           </a>

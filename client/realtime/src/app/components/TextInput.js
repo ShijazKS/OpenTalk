@@ -4,7 +4,7 @@ const TextInput = ({message,setMessage,sendMessage,username}) => {
   return (
     <div
         id="msg"
-        className="bg-gray-400 w-5/6 z-10  overflow-hidden  h-14 mt-6  flex rounded-2xl"
+        className="bg-gray-400 w-5/6 z-10  overflow-hidden  h-14 mt-6  flex rounded-2xl shadow-lg"
       >
         <textarea
           id="msgbox"
@@ -23,12 +23,12 @@ const TextInput = ({message,setMessage,sendMessage,username}) => {
               }
             }
           }}
-          className="bg-slate-300 whitespace-pre-wrap form-control w-5/6 p-3 resize-none text-xl focus:border-bg-white rounded-l-2xl text-slate-900 placeholder-slate-500"
+          className="bg-slate-400 whitespace-pre-wrap form-control w-5/6 p-3 resize-none text-xl focus:border-bg-white rounded-l-2xl text-slate-900 placeholder-slate-100"
           rows="3"
         ></textarea>
         <button
           onClick={sendMessage}
-          className="flex justify-center items-center hover:bg-slate-800 w-1/6 focus:bg-slate-700 bg-slate-500 hover:text-lime-100 rounded-r-lg text-lime-400"
+          className="flex justify-center items-center hover:bg-slate-800 w-1/6 focus:bg-slate-700 bg-slate-700 hover:text-lime-100 rounded-r-lg text-lime-400"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
