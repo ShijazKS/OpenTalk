@@ -101,6 +101,12 @@ undefined
   border-color: #f4f3ef;
 }
 
+@media (max-width: 480px) {
+  .background li {
+    animation: cube 20s ease-in forwards infinite;
+  }
+}
+
 .background li:nth-child(1) {
   animation-delay: 2s;
   left: 16vw;
