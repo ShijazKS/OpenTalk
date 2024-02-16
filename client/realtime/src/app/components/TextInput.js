@@ -4,7 +4,7 @@ const TextInput = ({message,setMessage,sendMessage,username}) => {
   return (
     <div
         id="msg"
-        className="border-slate-700 border-4 bg-gray-400 w-5/6 z-10 overflow-hidden h-16 mt-6 flex rounded-xl shadow-2xl"
+        className="fixed bottom-10 border-slate-700 border-4 bg-gray-400 lg:w-1/2 w-5/6 z-10 overflow-hidden h-16 mt-6 flex rounded-xl shadow-2xl"
       >
         <textarea
           id="msgbox"

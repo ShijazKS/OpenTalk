@@ -4,7 +4,7 @@ const ChatScreen = ({filteredMessagesList}) => {
   return (
     <div
         id="screen"
-        className="w-5/6 border-amber-400 flex flex-col-reverse border-4 bg-yellow-200 rounded-lg mt-6 p-8 overflow-auto shadow-xl"
+        className="w-5/6 border-amber-400 flex flex-col-reverse border-4 bg-yellow-200 rounded-lg mt-6 p-8 overflow-auto shadow-lg"
       >
         <ul>
           {filteredMessagesList.map((messageItem, index) => (

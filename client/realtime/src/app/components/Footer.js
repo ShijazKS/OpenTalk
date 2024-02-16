@@ -2,7 +2,7 @@ import React from 'react'
 
 const Footer = () => {
   return (
-    <footer className="lg:fixed md:static fixed w-full px-2 bottom-0 md:pb-2 ">
+    <footer className=" fixed w-full px-2 bottom-0 md:pb-2 ">
         <div className="foot">
           <a href="https://shijazks.vercel.app">
             <h4 className="font-serif text-md italic text-slate-950 hover:text-indigo-950 pl-2">
