@@ -11,7 +11,7 @@ import TextInput from "./components/TextInput";
 //const socket = io.connect("http://localhost:3001");
 const socket = io.connect("https://nexus-chat.glitch.me/");
 
-const Screen = () => {
+const Screen = ({ darkMode, setDarkMode }) => {
   const [room, setRoom] = useState(""); // input room
   const [message, setMessage] = useState(""); //input message
   const [messagesList, setMessagesList] = useState([]); // Receiving messages
@@ -83,10 +83,9 @@ const Screen = () => {
   }, []);
 
   return (
-    <>
-
+    <div className="flex min-h-screen flex-col items-center lg:px-10 lg:mx-60">
       {/* navbar */}
-      <Header username={username} myroom={myroom} userCount={userCount} />
+      <Header username={username} myroom={myroom} userCount={userCount} darkMode={darkMode} setDarkMode={setDarkMode} />
 
       {/* room input */}
       <RoomSection
@@ -108,7 +107,7 @@ const Screen = () => {
       />
 
       <Footer />
-    </>
+    </div>
   );
 };
 

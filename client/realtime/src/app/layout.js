@@ -13,9 +13,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <Head>
-      <meta name="keywords" content="opentalk,jazdesign,shijazks" />
+      <meta name="keywords" content="opentalk,jazdesign,shijazks,open-talk" />
       </Head>
-      <body className='bg-lime-200'>{children}</body>
+      <body>{children}</body>
     </html>
   )
 }

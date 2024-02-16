@@ -42,15 +42,6 @@ body {
   white-space: pre-wrap;
 }
 
-.svg-icon {
-  fill: #1e293bce;
-  transition: fill 0.3s; /* Smooth transition for color change */
-}
-
-.svg-link:hover .svg-icon {
-  fill: #6f068a; /* Change to your desired hover color */
-}
-
 
 .foot{
   display: flex;

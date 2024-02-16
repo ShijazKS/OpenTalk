@@ -1,11 +1,16 @@
 "use client";
 
 import Screen from "./Screen";
+import { useState } from "react";
 
 export default function Home() {
+  const [darkMode, setDarkMode] = useState(false);
+
   return (
-    <main className="flex min-h-screen flex-col items-center lg:px-10 lg:mx-60">
-      <Screen />
-    </main>
+    <div className={darkMode ? "dark" : ""}>
+      <main className="bg-lime-200 dark:bg-slate-900">
+        <Screen darkMode={darkMode} setDarkMode={setDarkMode} />
+      </main>
+    </div>
   );
 }
