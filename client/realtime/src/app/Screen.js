@@ -8,8 +8,8 @@ import RoomSection from "./components/RoomSection";
 import ChatScreen from "./components/ChatScreen";
 import TextInput from "./components/TextInput";
 
-//const socket = io.connect("http://localhost:3001");
-const socket = io.connect("https://nexus-chat.glitch.me/");
+const socket = io.connect("http://localhost:3001");
+//const socket = io.connect("https://nexus-chat.glitch.me/");
 
 const Screen = () => {
   const [room, setRoom] = useState(""); // input room
@@ -84,48 +84,6 @@ const Screen = () => {
 
   return (
     <>
-      <ul className="-z-50 background">
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-      </ul>
 
       {/* navbar */}
       <Header username={username} myroom={myroom} userCount={userCount} />

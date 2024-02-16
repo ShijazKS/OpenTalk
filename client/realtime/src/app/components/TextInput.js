@@ -4,7 +4,7 @@ const TextInput = ({message,setMessage,sendMessage,username}) => {
   return (
     <div
         id="msg"
-        className="bg-gray-400 w-5/6 z-10  overflow-hidden  h-14 mt-6  flex rounded-2xl shadow-lg"
+        className="border-slate-700 border-4 bg-gray-400 w-5/6 z-10 overflow-hidden h-16 mt-6 flex rounded-xl shadow-2xl"
       >
         <textarea
           id="msgbox"
@@ -23,7 +23,7 @@ const TextInput = ({message,setMessage,sendMessage,username}) => {
               }
             }
           }}
-          className="bg-slate-400 whitespace-pre-wrap form-control w-5/6 p-3 resize-none text-xl focus:border-bg-white rounded-l-2xl text-slate-900 placeholder-slate-100"
+          className="bg-slate-400 whitespace-pre-wrap form-control w-5/6 p-3 resize-none text-xl  rounded-l-2xl text-slate-900 placeholder-slate-800"
           rows="3"
         ></textarea>
         <button

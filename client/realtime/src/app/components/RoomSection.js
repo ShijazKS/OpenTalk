@@ -3,11 +3,11 @@ import React from 'react'
 const RoomSection = ({room,setRoom,joinRoom,DisconnectRooms}) => {
   return (
     <div className="flex">
-        <div id="inp" className="relative">
+        <div id="inp" className="relative ">
           <input
             id="search"
             value={room}
-            className="block w-full p-4 pl-4 text-xl shadow-lg rounded-xl focus:outline-none bg-indigo-400  placeholder-gray-200 text-black"
+            className="border-4 border-indigo-900 block w-full p-4 pl-4 text-xl shadow-xl rounded-xl focus:outline-none bg-indigo-400  placeholder-indigo-950 text-black"
             placeholder="Room No:"
             autoComplete="off"
             onChange={(e) => {
@@ -22,7 +22,7 @@ const RoomSection = ({room,setRoom,joinRoom,DisconnectRooms}) => {
           <button
             type="button"
             onClick={joinRoom}
-            className="text-white font-bold absolute right-3 bottom-2 focus:ring-2 focus:outline-none  rounded-lg text-sm px-4 py-3 bg-indigo-700 hover:bg-indigo-900 "
+            className="text-white font-bold absolute right-3 bottom-3 focus:ring-2 focus:outline-none  rounded-lg text-sm px-4 py-3 bg-indigo-700 hover:bg-indigo-900 "
           >
             GO!
           </button>
@@ -31,7 +31,7 @@ const RoomSection = ({room,setRoom,joinRoom,DisconnectRooms}) => {
         <button
           type="submit"
           onClick={DisconnectRooms}
-          className="shadow-lg bg-rose-800 text-white hover:bg-red-700 focus:ring-4 focus:outline-none font-medium rounded-xl text-sm px-3 pl-3 py-3 ml-8 text-center focus:ring-pink-950"
+          className="border-4 border-red-800  shadow-xl bg-red-600 text-white hover:bg-red-700 focus:ring-4 focus:outline-none font-medium rounded-xl text-sm px-3 pl-3 py-3 ml-8 text-center focus:ring-pink-950"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
