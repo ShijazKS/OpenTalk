@@ -12,10 +12,10 @@ const ChatScreen = ({ filteredMessagesList }) => {
             {messageItem.senderSocketId === "me" ? (
               <div
                 id="right"
-                className="bg-teal-300 dark:bg-teal-700 dark:text-white md:text-lg max-w-fit p-2  mb-4 rounded-lg ml-auto break-all whitespace-pre-wrap shadow-md dark:shadow-xl relative"
+                className="bg-teal-300 dark:bg-teal-700 dark:text-white md:text-lg max-w-fit p-2 mb-6 rounded-lg ml-auto break-all whitespace-pre-wrap shadow-md dark:shadow-xl relative"
               >
-                <p className="mb-1 mr-1 pb-2">{messageItem.message}</p>
-                <p className="time italic text-slate-700 dark:text-white absolute bottom-1 right-1">
+                <p className="">{messageItem.message}</p>
+                <p className="time italic text-slate-700 dark:text-white absolute bottom-0.4 right-1">
                   {messageItem.time}
                 </p>
               </div>
