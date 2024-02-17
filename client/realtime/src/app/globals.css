@@ -17,8 +17,32 @@ body {
 
 #screen {
   min-height: 100px;
-  max-height: 550px;
+  max-height: 540px;
+  --sb-track-color: #232E33;
+  --sb-thumb-color: #fa4cf4;
+  --sb-size: 4px;
 }
+
+#screen::-webkit-scrollbar {
+  width: var(--sb-size);
+}
+
+#screen::-webkit-scrollbar-track {
+  /* background: var(--sb-track-color); */
+  border-radius: 3px;
+}
+
+#screen::-webkit-scrollbar-thumb {
+  background: var(--sb-thumb-color);
+  border-radius: 3px;
+}
+@supports not selector(::-webkit-scrollbar) {
+  #screen {
+      scrollbar-color: var(--sb-thumb-color)
+                     var(--sb-track-color);
+  }
+}
+
 
 @media (max-width: 480px) {
   
@@ -32,7 +56,7 @@ body {
     font-size: larger;
   }
   #screen {
-    max-height: 280px;
+    max-height: 300px;
   }
   #msg {
     margin-bottom: 10px;

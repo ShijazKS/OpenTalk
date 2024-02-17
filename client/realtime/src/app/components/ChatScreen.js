@@ -18,10 +18,10 @@ const ChatScreen = ({filteredMessagesList}) => {
                 </div>
               ) : (
                 <div id='left' className="bg-white dark:bg-fuchsia-800 mr-3 md:mr-10 lg:mr-24 max-w-fit p-3 mb-4 mr-auto rounded-lg break-all whitespace-pre-wrap shadow-md dark:shadow-xl">
-                  <h3 className="text-teal-600 dark:text-yellow-200 font-semibold md:text-lg">
+                  <h3 className="text-teal-600 dark:text-yellow-200 font-semibold text-sm">
                     {messageItem.senderSocketId}
                   </h3>
-                  <p className='pl-1 md:text-lg dark:text-white'>{messageItem.message}</p>
+                  <p className='pl-2 md:text-lg dark:text-white'>{messageItem.message}</p>
                 </div>
               )}
             </li>
