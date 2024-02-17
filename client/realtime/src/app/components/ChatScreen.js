@@ -12,10 +12,10 @@ const ChatScreen = ({ filteredMessagesList }) => {
             {messageItem.senderSocketId === "me" ? (
               <div
                 id="right"
-                className="bg-teal-300 dark:bg-teal-700 dark:text-white md:text-lg max-w-fit p-3 mb-4 rounded-lg ml-auto break-all whitespace-pre-wrap shadow-md dark:shadow-xl relative"
+                className="bg-teal-300 dark:bg-teal-700 dark:text-white md:text-lg max-w-fit p-2  mb-4 rounded-lg ml-auto break-all whitespace-pre-wrap shadow-md dark:shadow-xl relative"
               >
-                <p className="mb-1 mr-1 pb-1">{messageItem.message}</p>
-                <p className="time italic text-slate-700 absolute bottom-0 right-1">
+                <p className="mb-1 mr-1 pb-2">{messageItem.message}</p>
+                <p className="time italic text-slate-700 dark:text-white absolute bottom-1 right-1">
                   {messageItem.time}
                 </p>
               </div>
@@ -27,10 +27,10 @@ const ChatScreen = ({ filteredMessagesList }) => {
   <h3 className="text-teal-600 dark:text-yellow-200 font-semibold text-sm">
     {messageItem.senderSocketId}
   </h3>
-  <p className="mb-1 mr-1 pl-2 md:text-lg dark:text-white">
+  <p className="mb-1 mr-1 md:text-lg dark:text-white">
     {messageItem.message}
   </p>
-  <p className="time italic text-slate-700 absolute bottom-1 right-1">{messageItem.time}</p>
+  <p className="time italic text-slate-700 dark:text-white absolute bottom-1 right-1">{messageItem.time}</p>
 </div>
             )}
           </li>

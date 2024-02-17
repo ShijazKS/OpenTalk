@@ -33,18 +33,6 @@ const generateGuestName = () => {
   return `G${randomNumber}`;
 };
 
-const getCurrentTime = () => {
-  const now = new Date();
-  let hours = now.getHours();
-  let minutes = now.getMinutes();
-  const ampm = hours >= 12 ? "pm" : "am";
-  hours = hours % 12;
-  hours = hours ? hours : 12; // Handle midnight (12:00 am)
-  minutes = minutes < 10 ? "0" + minutes : minutes; // Add leading zero if minutes < 10
-  const currentTime = hours + ":" + minutes + " " + ampm;
-  return currentTime;
-};
-
 io.on("connection", (socket) => {
   console.log(`User Connected: ${socket.id}`);
 
@@ -71,7 +59,7 @@ io.on("connection", (socket) => {
 
   socket.on("send_msg", async (data) => {
     const senderSocketId = rooms.get(socket.id);
-    // const currentTime = getCurrentTime();
+    
     //console.log(roomUserCounts)
     if (data.type === "text") {
       socket.to(data.room).emit("receive_msg", {
