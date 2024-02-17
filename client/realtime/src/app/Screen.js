@@ -19,6 +19,18 @@ const Screen = ({ darkMode, setDarkMode }) => {
   const [myroom, setMyroom] = useState(""); // current room
   const [userCount, setUserCount] = useState(); // New state for user count
 
+  const getCurrentTime = () => {
+    const now = new Date();
+    let hours = now.getHours();
+    let minutes = now.getMinutes();
+    const ampm = hours >= 12 ? "pm" : "am";
+    hours = hours % 12;
+    hours = hours ? hours : 12; // Handle midnight (12:00 am)
+    minutes = minutes < 10 ? "0" + minutes : minutes; // Add leading zero if minutes < 10
+    const currentTime = hours + ":" + minutes + " " + ampm;
+    return currentTime;
+  };
+
   // const sendDataToServer = (data) => {
   //   socket.emit("data_from_client", data);
   // };
@@ -50,15 +62,17 @@ const Screen = ({ darkMode, setDarkMode }) => {
 
   const sendMessage = () => {
     //socket.emit("send_msg", {message, room});
+    const currentTime = getCurrentTime();
     socket.emit("send_msg", {
       type: "text", // Specify the type as "text"
       message,
       room,
       senderSocketId: socket.id, // Include the sender's socket.id in the data
+      time:currentTime
     });
     setMessagesList((prevMessages) => [
       ...prevMessages,
-      { senderSocketId: "me", message: message },
+      { senderSocketId: "me", message: message, time:currentTime },
     ]);
     setMessage("");
   };
@@ -68,7 +82,7 @@ const Screen = ({ darkMode, setDarkMode }) => {
       // Add the new text message to the messages list
       setMessagesList((prevMessages) => [
         ...prevMessages,
-        { senderSocketId: data.senderSocketId, message: data.message },
+        { senderSocketId: data.senderSocketId, message: data.message, time:data.time },
       ]);
     });
     // Get the guest name from the server and store it in the state

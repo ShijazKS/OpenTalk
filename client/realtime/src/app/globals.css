@@ -43,6 +43,14 @@ body {
   }
 }
 
+.time{
+  font-size: x-small;
+}
+
+#right{
+  min-width: 46px;
+}
+
 
 @media (max-width: 480px) {
   
