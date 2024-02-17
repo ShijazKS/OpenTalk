@@ -8,7 +8,7 @@ export default function Home() {
 
   return (
     <div className={darkMode ? "dark" : ""}>
-      <main className="bg-lime-200 dark:bg-slate-900">
+      <main className="bg-slate-300 dark:bg-slate-900">
         <Screen darkMode={darkMode} setDarkMode={setDarkMode} />
       </main>
     </div>

@@ -16,7 +16,7 @@ const RoomSection = ({ room, setRoom, joinRoom, DisconnectRooms }) => {
         <input
           id="search"
           value={room}
-          className="border-indigo-900 bg-indigo-400 placeholder-indigo-950 text-black dark:border-violet-600 dark:bg-indigo-950 dark:placeholder-indigo-300 dark:text-gray-300 border-4 block w-full p-4 pl-4 text-xl shadow-xl rounded-xl focus:outline-none"
+          className="bg-slate-300 placeholder-slate-800 text-slate-900 dark:border-slate-600 dark:bg-slate-800 dark:placeholder-slate-400 dark:text-gray-300 border-4 block w-full p-4 pl-4 text-xl shadow-xl rounded-xl focus:outline-none"
           placeholder="Room No:"
           autoComplete="off"
           onChange={(e) => {
@@ -31,7 +31,7 @@ const RoomSection = ({ room, setRoom, joinRoom, DisconnectRooms }) => {
         <button
           type="button"
           onClick={joinRoom}
-          className="text-white  bg-indigo-700 hover:bg-indigo-900 dark:text-white  dark:bg-indigo-800 dark:hover:bg-indigo-600  font-bold absolute right-3 bottom-3 focus:outline-none  rounded-lg text-sm px-4 py-3"
+          className="text-slate-50  bg-green-500 hover:bg-green-600 hover:drop-shadow-lg dark:text-slate-50  dark:bg-green-700 dark:hover:bg-green-500  font-bold absolute right-3 bottom-3 focus:outline-none  rounded-lg text-sm px-4 py-3"
         >
           GO!
         </button>
@@ -40,7 +40,7 @@ const RoomSection = ({ room, setRoom, joinRoom, DisconnectRooms }) => {
       <button
         type="submit"
         onClick={DisconnectRooms}
-        className="border-red-800 bg-red-600 text-white hover:bg-red-700 dark:border-red-600 dark:bg-rose-900 dark:text-white dark:hover:bg-red-800 border-4 shadow-xl focus:ring-4 focus:outline-none font-medium rounded-xl text-sm px-3 pl-3 py-3 ml-8 text-center"
+        className="border-red-800 bg-red-600 text-white hover:bg-red-700 dark:border-red-600 dark:bg-rose-900 dark:text-white dark:hover:bg-red-800  dark:hover:border-red-00 border-4 shadow-xl focus:ring-4 focus:outline-none font-medium rounded-xl text-sm px-3 pl-3 py-3 ml-8 text-center"
       >
         <FaPowerOff className="w-6 h-6 " />
       </button>

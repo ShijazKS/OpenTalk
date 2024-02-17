@@ -4,7 +4,7 @@ const TextInput = ({message,setMessage,sendMessage,username}) => {
   return (
     <div
         id="msg"
-        className="border-slate-700 bg-gray-400 dark:border-slate-300  md:fixed md:bottom-10 border-4 lg:w-1/2 w-5/6 z-10 overflow-hidden h-16 mt-6 flex rounded-xl shadow-2xl"
+        className="border-slate-700 bg-gray-400 dark:border-slate-600 dark:bg-slate-700  md:fixed md:bottom-10 border-4 lg:w-1/2 w-5/6 z-10 overflow-hidden h-16 mt-6 flex rounded-xl shadow-2xl"
       >
         <textarea
           id="msgbox"
@@ -23,12 +23,12 @@ const TextInput = ({message,setMessage,sendMessage,username}) => {
               }
             }
           }}
-          className="bg-slate-400 text-slate-900 placeholder-slate-800 dark:bg-slate-800 dark:text-slate-100 dark:placeholder-slate-300 focus:outline-none whitespace-pre-wrap form-control w-5/6 p-3 resize-none text-xl rounded-l-xl"
+          className="bg-slate-400 text-slate-950 placeholder-slate-800 dark:bg-slate-800 dark:text-slate-100 dark:placeholder-slate-300  focus:outline-none whitespace-pre-wrap form-control w-5/6 p-3 resize-none text-xl rounded-l-xl"
           rows="3"
         ></textarea>
         <button
           onClick={sendMessage}
-          className="text-lime-400 bg-slate-700 hover:text-lime-100 hover:bg-slate-800 dark:text-slate-800 dark:bg-slate-300 dark:hover:text-lime-300 dark:hover:bg-slate-600 flex justify-center items-center w-1/6  rounded-r-lg "
+          className="text-slate-400 bg-slate-700 hover:text-slate-100 hover:bg-slate-800 dark:text-slate-800 dark:bg-slate-300 dark:hover:text-blue-400 dark:hover:bg-slate-600  flex justify-center items-center w-1/6  rounded-r-lg "
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
