@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { HiOutlineClipboardCopy,HiClipboardCopy } from "react-icons/hi";
 
 const CopyButton = ({ onClick, className}) => {
   const [copied, setCopied] = useState(false);
@@ -15,10 +16,10 @@ const CopyButton = ({ onClick, className}) => {
 
   return (
     <button
-      className={`bg-green-200 hover:bg-gray-600 text-slate-800 font-semibold py-[5px] px-[5px] rounded  ${copied ? 'opacity-50 cursor-not-allowed' : ''} text-[10px]  ${className}`}
+      className={` text-slate-800 dark:text-slate-100 font-semibold  ${copied ? ' cursor-not-allowed' : ''} text-sm  ${className}`}
       onClick={!copied ? handleClick : null}
     >
-      {copied ? 'Copied' : 'Copy'}
+      {copied ? <HiClipboardCopy className="text-emerald-400" /> : <HiOutlineClipboardCopy/>}
     </button>
   );
 };
