@@ -5,12 +5,12 @@ import { useState } from "react";
 
 export default function Home() {
   // const [darkMode, setDarkMode] = useState(false);
-  const [mode, setMode] = useState(2);
+  const [mode, setMode] = useState(0);
 
   const container = {
     0: "bg-gray-200", //light
     1: "bg-slate-900",//dark
-    2: "bg-slate-900",//prime
+    2: "bg-black",//prime
   };
 
   return (

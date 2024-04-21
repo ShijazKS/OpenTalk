@@ -6,12 +6,12 @@ const Footer = ({ mode, setMode }) => {
   const logo = {
     0: "text-slate-800 hover:text-purple-950 ", //light
     1: "text-slate-50 hover:text-purple-500", //dark
-    2: "text-slate-50 hover:text-purple-500", //prime
+    2: "text-slate-50 ", //prime
   };
   const github = {
     0: "text-slate-800 hover:text-purple-900 ", //light
     1: "text-white hover:text-purple-600", //dark
-    2: "text-white hover:text-purple-600", //prime
+    2: "text-white ", //prime
   };
   const setting = {
     0: "text-slate-800 hover:text-purple-900", //light

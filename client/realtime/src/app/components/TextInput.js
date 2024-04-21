@@ -5,17 +5,17 @@ const TextInput = ({message,setMessage,sendMessage,username,mode}) => {
   const container = {
     0: "border-slate-700 bg-slate-700 ", //light
     1: "border-slate-300",//dark
-    2: "border-slate-300",//prime
+    2: "border-white",//prime
   };
   const txtinp = {
     0: "bg-slate-200 text-slate-900 placeholder-slate-800 ", //light
     1: "bg-slate-900 text-slate-100 placeholder-slate-300",//dark
-    2: "bg-slate-800 text-slate-100 placeholder-slate-300",//prime
+    2: "bg-black text-white placeholder-white",//prime
   };
   const txtbtn = {
     0: "text-lime-400 bg-slate-700 hover:text-lime-100 ", //light
     1: "text-slate-800 bg-slate-300 hover:text-lime-300 hover:bg-slate-800",//dark
-    2: "text-slate-800 bg-slate-300 hover:text-lime-300 hover:bg-slate-600",//prime
+    2: "text-black bg-white hover:text-white hover:bg-black hover:border-l",//prime
   };
   
 

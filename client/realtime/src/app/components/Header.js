@@ -4,7 +4,7 @@ const Header = ({ username, myroom, userCount, mode, setMode }) => {
   const container = {
     0: "bg-slate-200 text-blue-950 border-sky-700", //light
     1: "bg-slate-900 text-gray-300 border-sky-200", //dark
-    2: "bg-sky-800 text-gray-300 border-sky-300", //prime
+    2: "bg-black text-white border-white", //prime
   };
 
   return (

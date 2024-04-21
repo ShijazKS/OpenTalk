@@ -5,36 +5,36 @@ const ChatScreen = ({ filteredMessagesList, mode }) => {
   const container = {
     0: "border-amber-500 bg-slate-200", //light
     1: "border-amber-300 bg-slate-900", //dark
-    2: "border-emerald-300 bg-cyan-950", //prime
+    2: "border-white bg-black", //prime
   };
 
   const me = {
     0: "bg-emerald-300 text-gray-900 shadow-md ", //light
-    1: "bg-slate-200 text-cyan-950 shadow-xl", //dark
-    2: "bg-teal-700 text-white shadow-xl", //prime
+    1: "bg-slate-200 text-cyan-950 shadow-lg", //dark
+    2: "bg-white text-black shadow-lg", //prime
   };
 
   const time = {
     0: "text-slate-950 ", //light
     1: "text-slate-950", //dark
-    2: "text-white", //prime
+    2: "text-black", //prime
   };
   const time2 = {
     0: "text-slate-900 ", //light
     1: "text-slate-200", //dark
-    2: "text-white", //prime
+    2: "text-black", //prime
   };
 
   const sender = {
     0: "text-teal-700 ", //light
     1: "text-sky-200", //dark
-    2: "text-yellow-200", //prime
+    2: "text-black", //prime
   };
 
   const other = {
     0: "bg-white shadow-lg", //light
     1: "bg-purple-950  shadow-lg", //dark
-    2: "bg-fuchsia-800 shadow-lg", //prime
+    2: "bg-white shadow-lg", //prime
   };
 
   const copyToClipboard = (text) => {
@@ -72,7 +72,7 @@ const ChatScreen = ({ filteredMessagesList, mode }) => {
                     onClick={() => copyToClipboard(messageItem.message)}
                   />
                 </div>
-                <p className={`mb-1 mr-1 md:text-lg  ${mode===1?"text-slate-100":mode===2?"text-white":""}`}>
+                <p className={`mb-1 mr-1 md:text-lg  ${mode===1?"text-slate-100":mode===2?"text-black":""}`}>
                   {messageItem.message}
                 </p>
                 <p className={`time italic absolute bottom-1 right-1 ${time2[mode]}`}>
