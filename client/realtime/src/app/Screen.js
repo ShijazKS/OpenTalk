@@ -8,10 +8,10 @@ import RoomSection from "./components/RoomSection";
 import ChatScreen from "./components/ChatScreen";
 import TextInput from "./components/TextInput";
 
-//const socket = io.connect("http://localhost:3001");
-const socket = io.connect("https://nexus-chat.glitch.me/");
+const socket = io.connect("http://localhost:3001");
+// const socket = io.connect("https://nexus-chat.glitch.me/");
 
-const Screen = ({ darkMode, setDarkMode }) => {
+const Screen = ({ mode, setMode }) => {
   const [room, setRoom] = useState(""); // input room
   const [message, setMessage] = useState(""); //input message
   const [messagesList, setMessagesList] = useState([]); // Receiving messages
@@ -30,10 +30,6 @@ const Screen = ({ darkMode, setDarkMode }) => {
     const currentTime = hours + ":" + minutes + " " + ampm;
     return currentTime;
   };
-
-  // const sendDataToServer = (data) => {
-  //   socket.emit("data_from_client", data);
-  // };
 
   // Filter out empty messages from messagesList
   const filteredMessagesList = messagesList.filter((messageItem) => {
@@ -103,7 +99,7 @@ const Screen = ({ darkMode, setDarkMode }) => {
   return (
     <div className="flex min-h-screen flex-col items-center lg:px-10 lg:mx-60">
       {/* navbar */}
-      <Header username={username} myroom={myroom} userCount={userCount} darkMode={darkMode} setDarkMode={setDarkMode} />
+      <Header username={username} myroom={myroom} userCount={userCount} mode={mode} />
 
       {/* room input */}
       <RoomSection
@@ -111,10 +107,11 @@ const Screen = ({ darkMode, setDarkMode }) => {
         setRoom={setRoom}
         joinRoom={joinRoom}
         DisconnectRooms={DisconnectRooms}
+        mode={mode}
       />
 
       {/* chat screen */}
-      <ChatScreen filteredMessagesList={filteredMessagesList} />
+      <ChatScreen filteredMessagesList={filteredMessagesList} mode={mode}/>
 
       {/* message input */}
       <TextInput
@@ -122,9 +119,10 @@ const Screen = ({ darkMode, setDarkMode }) => {
         setMessage={setMessage}
         sendMessage={sendMessage}
         username={username}
+        mode={mode}
       />
 
-      <Footer />
+      <Footer mode={mode} setMode={setMode} />
     </div>
   );
 };

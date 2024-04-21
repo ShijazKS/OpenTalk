@@ -1,10 +1,28 @@
 import React from 'react'
 
-const TextInput = ({message,setMessage,sendMessage,username}) => {
+const TextInput = ({message,setMessage,sendMessage,username,mode}) => {
+  
+  const container = {
+    0: "border-slate-700 bg-slate-700 ", //light
+    1: "border-slate-300",//dark
+    2: "border-slate-300",//prime
+  };
+  const txtinp = {
+    0: "bg-slate-200 text-slate-900 placeholder-slate-800 ", //light
+    1: "bg-slate-900 text-slate-100 placeholder-slate-300",//dark
+    2: "bg-slate-800 text-slate-100 placeholder-slate-300",//prime
+  };
+  const txtbtn = {
+    0: "text-lime-400 bg-slate-700 hover:text-lime-100 ", //light
+    1: "text-slate-800 bg-slate-300 hover:text-lime-300 hover:bg-slate-800",//dark
+    2: "text-slate-800 bg-slate-300 hover:text-lime-300 hover:bg-slate-600",//prime
+  };
+  
+
   return (
     <div
         id="msg"
-        className="border-slate-700 bg-gray-400 dark:border-slate-300  md:fixed md:bottom-10 border-4 lg:w-1/2 w-5/6 z-10 overflow-hidden h-16 mt-6 flex rounded-xl shadow-2xl"
+        className={` md:fixed md:bottom-10 border-4 lg:w-1/2 w-5/6 z-10 overflow-hidden h-16 mt-6 flex rounded-xl shadow-2xl ${container[mode]}`}
       >
         <textarea
           id="msgbox"
@@ -23,12 +41,12 @@ const TextInput = ({message,setMessage,sendMessage,username}) => {
               }
             }
           }}
-          className="bg-slate-400 text-slate-900 placeholder-slate-800 dark:bg-slate-800 dark:text-slate-100 dark:placeholder-slate-300 focus:outline-none whitespace-pre-wrap form-control w-5/6 p-3 resize-none text-xl rounded-l-xl"
+          className={`focus:outline-none whitespace-pre-wrap form-control w-5/6 p-3 resize-none text-xl rounded-l-xl  ${txtinp[mode]}`}
           rows="3"
         ></textarea>
         <button
           onClick={sendMessage}
-          className="text-lime-400 bg-slate-700 hover:text-lime-100 hover:bg-slate-800 dark:text-slate-800 dark:bg-slate-300 dark:hover:text-lime-300 dark:hover:bg-slate-600 flex justify-center items-center w-1/6  rounded-r-lg "
+          className={`flex justify-center items-center w-1/6  rounded-r-lg ${txtbtn[mode]}`}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

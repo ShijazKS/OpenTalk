@@ -16,6 +16,7 @@ export default function RootLayout({ children }) {
       <meta name="keywords" content="opentalk,jazdesign,shijazks,open-talk,open talk" />
       <meta name="description" content="Realtime room-based authentless chat application" />
       </Head>
+      <title>OpenTalk</title>
       <body>{children}</body>
     </html>
   )
