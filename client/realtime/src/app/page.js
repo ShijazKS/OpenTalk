@@ -1,11 +1,22 @@
 "use client";
 
 import Screen from "./Screen";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Home() {
   // const [darkMode, setDarkMode] = useState(false);
-  const [mode, setMode] = useState(3);
+  const [mode, setMode] = useState(0);
+  useEffect(() => {
+    const storedTheme = localStorage.getItem('theme');
+    if (storedTheme) {
+      setMode(storedTheme); 
+    }else{
+      localStorage.setItem('theme', mode);
+    }
+  
+    
+  }, [])
+  
 
   const container = {
     0: "bg-gray-200", //light

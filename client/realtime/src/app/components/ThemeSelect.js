@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Theme from "./Theme";
 
 const ThemeSelect = ({ isOpen, closeModal,setMode,mode }) => {
   const [selectedOption, setSelectedOption] = useState(0);
@@ -9,6 +10,7 @@ const ThemeSelect = ({ isOpen, closeModal,setMode,mode }) => {
 
   const Submit = () =>{
     setMode(selectedOption);
+    localStorage.setItem('theme', selectedOption);
     closeModal();
   }
 
@@ -38,11 +40,8 @@ const ThemeSelect = ({ isOpen, closeModal,setMode,mode }) => {
           onChange={() => handleOptionChange(0)}
           className="hidden"
         />
-        <img
-          src="https://via.placeholder.com/40x60/0bf/fff&text=A"
-          alt="Option 1"
-          className="w-full h-full rounded-2xl"
-        />
+  
+        <Theme from="from-slate-200" to="to-slate-200"/>
       </label>
       <label
         className={`w-32 h-20 rounded-2xl relative ${
@@ -57,11 +56,7 @@ const ThemeSelect = ({ isOpen, closeModal,setMode,mode }) => {
           onChange={() => handleOptionChange(1)}
           className="hidden"
         />
-        <img
-          src="https://via.placeholder.com/40x60/b0f/fff&text=B"
-          alt="Option 2"
-          className="w-full h-full rounded-2xl"
-        />
+        <Theme from="from-slate-900" to="to-slate-900"/>
       </label>
       <label
         className={`w-32 h-20 rounded-2xl relative ${
@@ -76,11 +71,7 @@ const ThemeSelect = ({ isOpen, closeModal,setMode,mode }) => {
           onChange={() => handleOptionChange(2)}
           className="hidden"
         />
-        <img
-          src="https://via.placeholder.com/40x60/a42/fff&text=C"
-          alt="Option 3"
-          className="w-full h-full rounded-2xl"
-        />
+       <Theme from="from-black" to="to-white"/>
       </label>
       <label
         className={`w-32 h-20 rounded-2xl relative ${
@@ -95,11 +86,7 @@ const ThemeSelect = ({ isOpen, closeModal,setMode,mode }) => {
           onChange={() => handleOptionChange(3)}
           className="hidden"
         />
-        <img
-          src="https://via.placeholder.com/40x60/f0b/fff&text=D"
-          alt="Option 4"
-          className="w-full h-full rounded-2xl"
-        />
+      <Theme from="from-atheme3" to="to-atheme4"/>
       </label>
         </div>
         <div className="flex justify-between m-2">
