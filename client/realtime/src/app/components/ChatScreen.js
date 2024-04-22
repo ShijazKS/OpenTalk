@@ -10,13 +10,13 @@ const ChatScreen = ({ filteredMessagesList, mode }) => {
 
   const me = {
     0: "bg-emerald-300 text-gray-900 shadow-md ", //light
-    1: "bg-slate-200 text-cyan-950 shadow-lg", //dark
+    1: "text-slate-200 bg-cyan-900 shadow-lg", //dark
     2: "bg-white text-black shadow-lg", //prime
   };
 
   const time = {
     0: "text-slate-950 ", //light
-    1: "text-slate-950", //dark
+    1: "text-slate-50", //dark
     2: "text-black", //prime
   };
   const time2 = {
@@ -33,7 +33,7 @@ const ChatScreen = ({ filteredMessagesList, mode }) => {
 
   const other = {
     0: "bg-white shadow-lg", //light
-    1: "bg-purple-950  shadow-lg", //dark
+    1: "bg-purple-900  shadow-lg", //dark
     2: "bg-white shadow-lg", //prime
   };
 
@@ -70,6 +70,7 @@ const ChatScreen = ({ filteredMessagesList, mode }) => {
                   <CopyButton
                     className="top-0 left-0 ml-1"
                     onClick={() => copyToClipboard(messageItem.message)}
+                    mode={mode}
                   />
                 </div>
                 <p className={`mb-1 mr-1 md:text-lg  ${mode===1?"text-slate-100":mode===2?"text-black":""}`}>

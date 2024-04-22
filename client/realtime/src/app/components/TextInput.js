@@ -13,7 +13,7 @@ const TextInput = ({message,setMessage,sendMessage,username,mode}) => {
     2: "bg-black text-white placeholder-white",//prime
   };
   const txtbtn = {
-    0: "text-lime-400 bg-slate-700 hover:text-lime-100 ", //light
+    0: "text-lime-100 bg-slate-700 hover:text-lime-400 ", //light
     1: "text-slate-800 bg-slate-300 hover:text-lime-300 hover:bg-slate-800",//dark
     2: "text-black bg-white hover:text-white hover:bg-black hover:border-l",//prime
   };
