@@ -23,7 +23,7 @@ const ThemeSelect = ({ isOpen, closeModal,setMode,mode }) => {
 
   return (
     <div className="fixed inset-0 z-30 flex items-center justify-center bg-black bg-opacity-50 ">
-      <div className={`p-4 shadow-md rounded-xl ${box[mode]}`}>
+      <div className={`p-4 shadow-md rounded-xl bg-white`}>
         <div className=" grid grid-cols-2 gap-4">
         <label
         className={`w-32 h-20 rounded-2xl relative ${
