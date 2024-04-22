@@ -6,23 +6,26 @@ const TextInput = ({message,setMessage,sendMessage,username,mode}) => {
     0: "border-slate-700 bg-slate-700 ", //light
     1: "border-slate-300",//dark
     2: "border-white",//prime
+    3: "border-atheme3 bg-atheme3",//prime
   };
   const txtinp = {
     0: "bg-slate-200 text-slate-900 placeholder-slate-800 ", //light
     1: "bg-slate-900 text-slate-100 placeholder-slate-300",//dark
     2: "bg-black text-white placeholder-white",//prime
+    3: "bg-atheme1 text-atheme4 placeholder-atheme4",//prime
   };
   const txtbtn = {
     0: "text-lime-100 bg-slate-700 hover:text-lime-400 ", //light
     1: "text-slate-800 bg-slate-300 hover:text-lime-300 hover:bg-slate-800",//dark
     2: "text-black bg-white hover:text-white hover:bg-black hover:border-l",//prime
+    3: "text-atheme1 bg-atheme3 hover:bg-atheme2 hover:text-atheme3",//prime
   };
   
 
   return (
     <div
         id="msg"
-        className={` md:fixed md:bottom-10 border-4 lg:w-1/2 w-5/6 z-10 overflow-hidden h-16 mt-6 flex rounded-xl shadow-2xl ${container[mode]}`}
+        className={` md:fixed md:bottom-10 border-4 lg:w-1/2 w-5/6 z-5 overflow-hidden h-16 mt-6 flex rounded-xl shadow-2xl ${container[mode]}`}
       >
         <textarea
           id="msgbox"

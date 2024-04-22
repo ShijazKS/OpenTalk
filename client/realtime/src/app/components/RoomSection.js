@@ -7,16 +7,19 @@ const RoomSection = ({ room, setRoom, joinRoom, DisconnectRooms,mode }) => {
     0: "border-emerald-700 bg-slate-200 placeholder-emerald-950 text-emerald-900 ", //light
     1: "border-emerald-400 bg-slate-900 placeholder-emerald-400 text-emerald-500",//dark
     2: "border-white bg-black placeholder-white text-white",//prime
+    3: "border-atheme3 bg-atheme1 placeholder-atheme4 text-atheme4",//prime
   };
   const inpbtn = {
     0: "text-white bg-emerald-700 hover:bg-emerald-900 ", //light
     1: "text-white  bg-emerald-600 hover:bg-emerald-800",//dark
     2: "text-black  bg-white hover:bg-black hover:text-white hover:border hover:border-white",//prime
+    3: "text-atheme1 bg-atheme3 hover:bg-atheme4 ",//prime
   };
   const disbtn = {
     0: "border-red-700 bg-slate-200 text-red-700 hover:bg-slate-50 ", //light
     1: "border-red-500 bg-slate-900 text-white hover:text-red-400",//dark
     2: "border-white bg-black text-white hover:bg-white hover:text-black ",//prime
+    3: "border-atheme3 bg-atheme1 text-atheme3 hover:bg-atheme2 hover:text-atheme1 ",//prime
   };
 
   return (

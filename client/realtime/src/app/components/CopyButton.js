@@ -8,6 +8,13 @@ const CopyButton = ({ onClick, className,mode}) => {
     0: "text-slate-800 ", //light
     1: "text-slate-100", //dark
     2: "text-black", //prime
+    3: "text-atheme4", //prime
+  };
+  const aftercopy = {
+    0: "text-emerald-400", //light
+    1: "text-slate-100", //dark
+    2: "text-black", //prime
+    3: "text-atheme1", //prime
   };
 
   const handleClick = () => {
@@ -25,7 +32,7 @@ const CopyButton = ({ onClick, className,mode}) => {
       className={`font-semibold  ${copied ? ' cursor-not-allowed' : ''} text-sm  ${className} ${copy[mode]}`}
       onClick={!copied ? handleClick : null}
     >
-      {copied ? <HiClipboardCopy className="text-emerald-400" /> : <HiOutlineClipboardCopy/>}
+      {copied ? <HiClipboardCopy className={` ${aftercopy[mode]} `} /> : <HiOutlineClipboardCopy/>}
     </button>
   );
 };

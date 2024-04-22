@@ -8,10 +8,11 @@ module.exports = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      colors: {
+        'atheme1': '#E4C59E',
+        'atheme2': '#AF8260',
+        'atheme3': '#803D3B',
+        'atheme4': '#322C2B',
       },
       fontFamily: {
         itim: ["Itim", "cursive"],
