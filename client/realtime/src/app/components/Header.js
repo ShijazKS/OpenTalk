@@ -10,7 +10,7 @@ const Header = ({ username, myroom, userCount, mode, setMode }) => {
 
   return (
     <div
-      className={`shadow-lg w-5/6 border-4 rounded-lg h-16 mx-6 my-5 px-4 flex items-center justify-between ${container[mode]}`}
+      className={`select-none shadow-lg w-5/6 border-4 rounded-lg h-16 mx-6 my-5 px-4 flex items-center justify-between ${container[mode]}`}
     >
       <h1 id="title" className="text-2xl md:text-3xl italic font-bold">
         OpenTalk

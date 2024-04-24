@@ -23,14 +23,14 @@ const RoomSection = ({ room, setRoom, joinRoom, DisconnectRooms,mode }) => {
   };
 
   return (
-    <div className="flex md:justify-center justify-between w-5/6">
+    <div className="select-none flex md:justify-center justify-between w-5/6">
       
       <div id="inp" className="relative ">
         <input
           id="search"
           value={room}
           className={` border-4 block sm:w-full w-[200px] p-4 pl-4 text-xl shadow-lg rounded-xl focus:outline-none font-medium ${inp[mode]}`}
-          placeholder="Room No:"
+          placeholder="Room Id:"
           autoComplete="off"
           onChange={(e) => {
             setRoom(e.target.value);

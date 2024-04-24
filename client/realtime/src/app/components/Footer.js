@@ -45,7 +45,7 @@ const Footer = ({ mode, setMode }) => {
   };
 
   return (
-    <footer className=" fixed w-full px-2 bottom-3 md:bottom-0  md:pb-2 ">
+    <footer className="select-none fixed w-full px-2 bottom-3 md:bottom-0  md:pb-2 ">
       <div className="foot">
         <a href="https://shijazks.vercel.app">
           <h4 className={`font-serif text-md italic pl-2 ${logo[mode]}`}>
