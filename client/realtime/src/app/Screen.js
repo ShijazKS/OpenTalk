@@ -7,9 +7,10 @@ import Header from "./components/Header";
 import RoomSection from "./components/RoomSection";
 import ChatScreen from "./components/ChatScreen";
 import TextInput from "./components/TextInput";
+import Buyme from "./components/Buyme";
 
-// const socket = io.connect("http://localhost:3001");
-const socket = io.connect("https://nexus-chat.glitch.me/");
+const socket = io.connect("http://localhost:3001");
+// const socket = io.connect("https://nexus-chat.glitch.me/");
 
 const Screen = ({ mode, setMode }) => {
   const [room, setRoom] = useState(""); // input room
@@ -111,8 +112,9 @@ const Screen = ({ mode, setMode }) => {
       />
 
       {/* chat screen */}
+      {filteredMessagesList.length > 0 && (
       <ChatScreen filteredMessagesList={filteredMessagesList} mode={mode}/>
-
+    )}
       {/* message input */}
       <TextInput
         message={message}
@@ -121,6 +123,7 @@ const Screen = ({ mode, setMode }) => {
         username={username}
         mode={mode}
       />
+      <Buyme/>
 
       <Footer mode={mode} setMode={setMode} />
     </div>

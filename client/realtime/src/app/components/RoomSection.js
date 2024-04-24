@@ -23,13 +23,13 @@ const RoomSection = ({ room, setRoom, joinRoom, DisconnectRooms,mode }) => {
   };
 
   return (
-    <div className="flex">
+    <div className="flex md:justify-center justify-between w-5/6">
       
       <div id="inp" className="relative ">
         <input
           id="search"
           value={room}
-          className={` border-4 block w-full p-4 pl-4 text-xl shadow-lg rounded-xl focus:outline-none font-medium ${inp[mode]}`}
+          className={` border-4 block sm:w-full w-[200px] p-4 pl-4 text-xl shadow-lg rounded-xl focus:outline-none font-medium ${inp[mode]}`}
           placeholder="Room No:"
           autoComplete="off"
           onChange={(e) => {
@@ -44,7 +44,7 @@ const RoomSection = ({ room, setRoom, joinRoom, DisconnectRooms,mode }) => {
         <button
           type="button"
           onClick={joinRoom}
-          className={`font-bold absolute right-3 bottom-3 focus:outline-none  rounded-lg text-sm px-4 py-3 ${inpbtn[mode]}`}
+          className={`font-bold absolute sm:right-3 sm:bottom-3 right-[-45px] bottom-3  focus:outline-none  rounded-lg text-sm px-4 py-3 ${inpbtn[mode]}`}
         >
           GO!
         </button>

@@ -25,7 +25,7 @@ const TextInput = ({message,setMessage,sendMessage,username,mode}) => {
   return (
     <div
         id="msg"
-        className={` md:fixed md:bottom-10 border-4 lg:w-1/2 w-5/6 z-5 overflow-hidden h-16 mt-6 flex rounded-xl shadow-2xl ${container[mode]}`}
+        className={` md:fixed md:bottom-10 border-4 lg:w-7/12 l w-5/6 z-5 overflow-hidden h-16 mt-6 flex rounded-xl shadow-2xl ${container[mode]}`}
       >
         <textarea
           id="msgbox"
@@ -44,12 +44,12 @@ const TextInput = ({message,setMessage,sendMessage,username,mode}) => {
               }
             }
           }}
-          className={`focus:outline-none whitespace-pre-wrap form-control w-5/6 p-3 resize-none text-xl rounded-l-xl  ${txtinp[mode]}`}
+          className={`focus:outline-none whitespace-pre-wrap form-control w-10/12 p-3 resize-none text-xl rounded-l-xl  ${txtinp[mode]}`}
           rows="3"
         ></textarea>
         <button
           onClick={sendMessage}
-          className={`flex justify-center items-center w-1/6  rounded-r-lg ${txtbtn[mode]}`}
+          className={`flex justify-center items-center w-2/12  rounded-r-lg ${txtbtn[mode]}`}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
