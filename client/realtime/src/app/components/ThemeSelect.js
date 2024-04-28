@@ -3,6 +3,26 @@ import React, { useState,useEffect } from "react";
 const ThemeSelect = ({ isOpen, closeModal, setMode, mode }) => {
   const [selectedOption, setSelectedOption] = useState(mode);
 
+  const handleKeyDown = (event) => {
+    if (event.key === "ArrowUp" && selectedOption > 0) {
+      setSelectedOption(selectedOption - 1);
+    } else if (event.key === "ArrowDown" && selectedOption < 3) {
+      setSelectedOption(selectedOption + 1);
+    } else if (event.key === "Enter") {
+      Submit(); // Call Submit function when Enter key is pressed
+    }
+  };
+
+  useEffect(() => {
+    if (isOpen) {
+      document.addEventListener("keydown", handleKeyDown);
+      console.log(selectedOption);
+      return () => {
+        document.removeEventListener("keydown", handleKeyDown);
+      };
+    }
+  }, [isOpen,selectedOption]); 
+
 
   const handleSelectOption = (value) => {
     setSelectedOption(value);
@@ -15,6 +35,7 @@ const ThemeSelect = ({ isOpen, closeModal, setMode, mode }) => {
   };
 
   if (!isOpen) return null;
+
 
   const box = {
     0: "bg-gray-200 text-blue-950 ", //light

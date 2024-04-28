@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { TbBrandGithubFilled } from "react-icons/tb";
 import { IoMdSettings } from "react-icons/io";
 import ThemeSelect from "./ThemeSelect";
@@ -14,6 +14,24 @@ const Footer = ({ mode, setMode }) => {
   const closeModal = () => {
     setIsOpen(false);
   };
+
+  useEffect(() => {
+    const handleKeyPress = (event) => {
+      // Check if Alt+M is pressed
+      if (event.altKey && event.key === "m") {
+        // Toggle isOpen when Alt+M is pressed
+        setIsOpen((prevIsOpen) => !prevIsOpen);
+      }
+    };
+
+    // Add event listener for key press
+    document.addEventListener("keydown", handleKeyPress);
+
+    // Clean up event listener on component unmount
+    return () => {
+      document.removeEventListener("keydown", handleKeyPress);
+    };
+  }, []);
 
   const logo = {
     0: "text-slate-800 hover:text-purple-950 ", //light

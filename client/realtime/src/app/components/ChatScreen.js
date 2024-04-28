@@ -50,15 +50,23 @@ const ChatScreen = ({ filteredMessagesList, mode }) => {
     3: "text-atheme4", //prime
   };
 
+  const info = {
+    0: "text-slate-800", //light
+    1: "text-slate-50", //dark
+    2: "text-white", //prime
+    3: "text-atheme4", //prime
+  };
+
   const copyToClipboard = (text) => {
     navigator.clipboard.writeText(text);
   };
   return (
     <div
       id="screen"
-      className={`w-5/6 flex flex-col-reverse border-4 rounded-lg mt-6 p-8 overflow-auto shadow-lg ${container[mode]}`}
+      className={`w-5/6 flex flex-col-reverse border-4 rounded-lg mt-6 p-4 sm:p-6 overflow-auto shadow-lg ${container[mode]}`}
     >
       <ul>
+        <p className={`italic text-center mb-2 font-light ${info[mode]}`}><span className=" mr-1">(alt+m)</span> to theme option</p>
         {filteredMessagesList.map((messageItem, index) => (
           <li key={index}>
             {messageItem.senderSocketId === "me" ? (
