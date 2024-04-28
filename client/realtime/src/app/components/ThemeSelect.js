@@ -1,6 +1,6 @@
 import React, { useState,useEffect } from "react";
 
-const ThemeSelect = ({ isOpen, closeModal, setMode, mode }) => {
+const ThemeSelect = ({ isOpen, closeModal, setMode, mode}) => {
   const [selectedOption, setSelectedOption] = useState(mode);
 
   const handleKeyDown = (event) => {
@@ -16,7 +16,7 @@ const ThemeSelect = ({ isOpen, closeModal, setMode, mode }) => {
   useEffect(() => {
     if (isOpen) {
       document.addEventListener("keydown", handleKeyDown);
-      console.log(selectedOption);
+      // console.log(selectedOption);
       return () => {
         document.removeEventListener("keydown", handleKeyDown);
       };
@@ -58,7 +58,7 @@ const ThemeSelect = ({ isOpen, closeModal, setMode, mode }) => {
 
   return (
     <div className="fixed inset-0 z-30 flex items-center justify-center bg-black bg-opacity-50 ">
-      <div className={`p-4 select-none shadow-md rounded-xl border ${box[mode]} ${unsel[mode]}`}>
+      <div  className={`p-4 select-none shadow-md rounded-xl border ${box[mode]} ${unsel[mode]}`}>
         <div className="flex-col">
           <div
             className={`border-2 h-10 w-[200px] text-center py-2 mb-2 ${

@@ -9,6 +9,7 @@ const Footer = ({ mode, setMode }) => {
 
   const openModal = () => {
     setIsOpen(true);
+    document.getElementById("modal-content").focus();
   };
 
   const closeModal = () => {
@@ -20,7 +21,7 @@ const Footer = ({ mode, setMode }) => {
       // Check if Alt+M is pressed
       if (event.altKey && event.key === "m") {
         // Toggle isOpen when Alt+M is pressed
-        setIsOpen((prevIsOpen) => !prevIsOpen);
+        setIsOpen((isOpen) => !isOpen);
       }
     };
 
@@ -79,7 +80,9 @@ const Footer = ({ mode, setMode }) => {
           </a>
         </div>
       </div>
-      <ThemeSelect isOpen={isOpen} closeModal={closeModal} setMode={setMode} mode={mode}/>
+      <div tabIndex={0} id="modal-content">
+      <ThemeSelect  isOpen={isOpen} closeModal={closeModal} setMode={setMode} mode={mode}/>
+      </div>
     </footer>
   );
 };

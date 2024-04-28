@@ -66,7 +66,7 @@ const ChatScreen = ({ filteredMessagesList, mode }) => {
       className={`w-5/6 flex flex-col-reverse border-4 rounded-lg mt-6 p-4 sm:p-6 overflow-auto shadow-lg ${container[mode]}`}
     >
       <ul>
-        <p className={`italic text-center mb-2 font-light ${info[mode]}`}><span className=" mr-1">(alt+m)</span> to theme option</p>
+        <p className={`hidden sm:block italic text-center mb-2 font-light ${info[mode]}`}><span className=" mr-1">(alt+m)</span> to theme option</p>
         {filteredMessagesList.map((messageItem, index) => (
           <li key={index}>
             {messageItem.senderSocketId === "me" ? (
