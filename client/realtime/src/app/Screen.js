@@ -10,7 +10,7 @@ import TextInput from "./components/TextInput";
 import Buyme from "./components/Buyme";
 
 // const socket = io.connect("http://localhost:3001");
-const socket = io.connect("https://nexus-chat.glitch.me/");
+const socket = io.connect("https://opentalk-server.onrender.com");
 
 const Screen = ({ mode, setMode }) => {
   const [room, setRoom] = useState(""); // input room
