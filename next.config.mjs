@@ -6,7 +6,6 @@ const nextConfig = {
   productionBrowserSourceMaps: false,
   reactCompiler: false,
   reactStrictMode: true,
-  swcMinify: true,
   compiler: {
     removeConsole: process.env.NODE_ENV !== "development",
   },
