@@ -1,0 +1,93 @@
+@import "tailwindcss";
+
+:root {
+  --title-color: #fbbf24; 
+  --chip-bg: #ffffff0f;
+  --chip-border: rgba(255,255,255,0.08);
+  --chip-text: #e2e8f0; 
+  --subtext-color: #cbd5e1;
+  --header-bg: #071521bd;
+  --header-border: rgba(255,255,255,0.15);
+
+  --bg-gradient: linear-gradient(to bottom right, #060b12, #131c2b, #1b2737);
+
+}
+
+:root[data-theme="dark"] {
+  --title-color: #fbbf24; 
+  --chip-bg: rgba(255,255,255,0.06);
+  --chip-border: rgba(255,255,255,0.08);
+  --chip-text: #e2e8f0; 
+  --subtext-color: #cbd5e1;
+  --header-bg: rgba(11, 28, 44, 0.6);
+  --header-border: rgba(255,255,255,0.15);
+
+ --bg-gradient: linear-gradient(to bottom right, #02040a, #0b1220, #15202f);
+ /* --bg-gradient: linear-gradient(to bottom right, #060b12, #131c2b, #1b2737); */
+}
+
+
+
+
+:root {
+    --animate-fadeInOut: fadeInOut 1.2s ease-in-out;
+    
+    @keyframes fadeInOut {
+        0% { opacity: 0; transform: translateY(3px); }
+        20% { opacity: 1; transform: translateY(0); }
+        80% { opacity: 1; }
+        100% { opacity: 0; transform: translateY(3px); }
+    }
+}
+
+@theme {
+  --animate-fadeInOut: fadeInOut 1.2s ease-in-out;
+
+  @keyframes fadeInOut {
+    0% { opacity: 0; transform: translateY(3px); }
+    20% { opacity: 1; transform: translateY(0); }
+    80% { opacity: 1; }
+    100% { opacity: 0; transform: translateY(3px); }
+  }
+}
+
+/* globals.css (or your global stylesheet) */
+.custom-scrollbar {
+  /* Firefox */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255,255,255,0.18) transparent;
+}
+
+/* Webkit browsers */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.12);
+  border-radius: 9999px;
+  border: 2px solid transparent; /* keeps thumb from visually sticking to edge */
+  background-clip: padding-box;
+}
+.custom-scrollbar:hover::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.22);
+}
+
+/* optional: hide scrollbar when not hovering (smooth experience) */
+.custom-scrollbar {
+  transition: scrollbar-color 0.2s ease;
+}
+
+textarea::-webkit-scrollbar {
+  display: none;
+}
+
+textarea {
+  scrollbar-width: none; /* Firefox */
+}
+
+
+
