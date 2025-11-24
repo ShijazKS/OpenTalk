@@ -20,12 +20,11 @@ export default function ChatHeader({
   return (
     <header
       className="
-        w-full py-3 flex items-center justify-between px-4 md:px-6 
-        linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0))
-       bg-opacity-80 backdrop-blur-md
+    fixed top-0 left-0 w-full z-50
+    py-3 flex items-center justify-between px-4 md:px-6
+    bg-opacity-80 backdrop-blur-md
       "
       style={{
-        // background: "var(--header-bg)",
         borderBottom: "1px solid var(--header-border)",
       }}
     >

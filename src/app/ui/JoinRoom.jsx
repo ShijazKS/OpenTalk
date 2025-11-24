@@ -60,7 +60,7 @@ export default function JoinRoom({ onJoin, socket }) {
   };
 
   return (
-    <div className=" flex items-center justify-center px-4 py-10">
+    <div className="min-h-[100dvh] flex items-center justify-center px-4 py-10">
       <div className="w-full max-w-md">
         <div className="text-center mb-10">
           <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-[#6b21a8] via-[#9333ea] to-[#4c1d95] text-white shadow-lg mb-4">

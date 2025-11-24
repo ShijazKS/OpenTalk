@@ -7,7 +7,7 @@
   --chip-text: #e2e8f0; 
   --subtext-color: #cbd5e1;
   --header-bg: #071521bd;
-  --header-border: rgba(255,255,255,0.15);
+  --header-border: rgba(6, 3, 3, 0.15);
 
   --bg-gradient: linear-gradient(to bottom right, #060b12, #131c2b, #1b2737);
 
@@ -25,6 +25,12 @@
  --bg-gradient: linear-gradient(to bottom right, #02040a, #0b1220, #15202f);
  /* --bg-gradient: linear-gradient(to bottom right, #060b12, #131c2b, #1b2737); */
 }
+
+html, body {
+  background-color: #060b12;
+  min-height: 100dvh;
+}
+
 
 
 

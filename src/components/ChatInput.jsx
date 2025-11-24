@@ -21,7 +21,20 @@ export default function ChatInput({ onSend }) {
     ta.style.height = ta.scrollHeight + "px";
   }, [text]);
 
+  const isMobile = () => {
+    return (
+      typeof window !== "undefined" &&
+      /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)
+    );
+  };
+
   const handleKeyDown = (e) => {
+    if (isMobile()) {
+      // Mobile: Enter ALWAYS adds newline
+      if (e.key === "Enter") return;
+    }
+
+    // Desktop logic
     if (e.key === "Enter" && e.shiftKey) return;
     if (e.key === "Enter") {
       e.preventDefault();
@@ -40,15 +53,15 @@ export default function ChatInput({ onSend }) {
           flex items-end gap-3 px-4 py-2
         "
       >
-       <textarea
-  ref={textareaRef}
-  rows={1}
-  placeholder="Message..."
-  value={text}
-  onChange={(e) => setText(e.target.value)}
-  onKeyDown={handleKeyDown}
-  className="
-    flex-1 bg-transparent text-white placeholder-gray-400
+        <textarea
+          ref={textareaRef}
+          rows={1}
+          placeholder="Message..."
+          value={text}
+          onChange={(e) => setText(e.target.value)}
+          onKeyDown={handleKeyDown}
+          className="
+    flex-1  text-white placeholder-gray-400
     focus:outline-none text-[15px]
     leading-[1.3]
     resize-none 
@@ -56,7 +69,7 @@ export default function ChatInput({ onSend }) {
     max-h-40
     mb-3
   "
-/>
+        />
 
         {/* SEND BTN */}
         <button

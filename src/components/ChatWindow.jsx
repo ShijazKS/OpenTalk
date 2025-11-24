@@ -29,7 +29,7 @@ export default function ChatWindow({ messages, username }) {
   }, []);
 
   return (
-    <div className=" h-full relative flex flex-col">
+    <div className="pt-14 md:pt-16 h-full relative flex flex-col">
       <div
         ref={containerRef}
         className="flex-1 px-6 mb-20 pt-6 space-y-4 overflow-y-auto custom-scrollbar"
