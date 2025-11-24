@@ -4,7 +4,11 @@ import { SocketProvider } from "@/providers/SocketProvider";
 
 
 export const metadata = {
-  title: "OpenTalk",
+  title: {
+    default: "OpenTalk",
+    template: "%s | OpenTalk",
+  },
+  applicationName: "OpenTalk",
   description: "Anonymous chat rooms made easy",
   keywords: [
     "opentalk",
@@ -16,19 +20,25 @@ export const metadata = {
     "anonymous",
     "realtime",
   ],
-  generator: "Next.js",
-  manifest: "/manifest.json",
   authors: [
     {
       name: "Shijaz KS",
       url: "https://github.com/shijazks/",
     },
-    {
-      name: "Sameemul Haque",
-      url: "https://github.com/sameemul-haque/",
-    },
   ],
+  generator: "Next.js",
+
+  openGraph: {
+    title: "OpenTalk",
+    description: "Anonymous chat rooms made easy",
+    url: "https://open-talk.vercel.app",
+    siteName: "OpenTalk",
+    type: "website",
+  },
+
+  manifest: "/manifest.json",
 };
+
 
 // 👇 NEW required export for Next.js 13.4+ (fixes all warnings)
 export const viewport = {
